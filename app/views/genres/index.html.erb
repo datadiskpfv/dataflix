@@ -1,0 +1,14 @@
+<header>
+  <h1>Genres</h1>
+</header>
+
+<div id="genres">
+  <% @genres.each do |genre| %>
+      <span class="genre"><%= genre.genre %></span>
+      <%= link_to 'Edit Genre', [:edit, genre], class: 'edit', id: "edit_#{genre.genre}" %>
+      <%= link_to 'Delete Genre', genre, method: :delete, id: "delete_#{genre.genre}",
+                  data: { confirm: 'Are you sure you want to delete this genre?' },
+                  class: 'delete' %>
+      <br>
+  <% end %>
+</div>

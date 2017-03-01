@@ -1,0 +1,11 @@
+<header>
+  <h1><%= @film.title %></h1>
+</header>
+<p>
+  <%= @film.description %>
+</p>
+
+<%= link_to 'Edit Film', edit_film_path, class: 'new' %>
+<%= link_to 'Delete Film', @film, method: :delete,
+        data: { confirm: 'Are you sure you want to delete this film?' },
+        class: 'delete' %>

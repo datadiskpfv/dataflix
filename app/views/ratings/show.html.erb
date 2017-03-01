@@ -1,0 +1,8 @@
+<header>
+  <h1><%= @rating.rating %></h1>
+</header>
+
+<%= link_to 'Edit Rating', edit_rating_path, class: 'edit' %>
+<%= link_to 'Delete Rating', @rating, method: :delete,
+            data: { confirm: 'Are you sure you want to delete this rating?' },
+            class: 'delete' %>

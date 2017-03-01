@@ -1,0 +1,10 @@
+<header>
+  <h1>Films</h1>
+</header>
+
+<div id="films">
+  <% @films.each do |film| %>
+    <h2><%= link_to film.title, film %></h2>
+    <p><% film.description %></p>
+  <% end %>
+</div>

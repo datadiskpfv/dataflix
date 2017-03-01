@@ -194,6 +194,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.6, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.2, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v2.53.4, ruby-2.3.3-p222) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_form (v3.1.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.0, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.13, ruby-2.3.3-p222) [gem]" level="application" />

@@ -1,0 +1,8 @@
+<header>
+  <h1><%= @genre.genre %></h1>
+</header>
+
+<%= link_to 'Edit Genre', edit_genre_path, class: 'edit' %>
+<%= link_to 'Delete Genre', @genre, method: :delete,
+            data: { confirm: 'Are you sure you want to delete this genre?' },
+            class: 'delete' %>

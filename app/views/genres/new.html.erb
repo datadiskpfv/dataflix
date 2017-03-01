@@ -1,0 +1,18 @@
+<header>
+  <h1>New Genre</h1>
+</header>
+
+<%= render 'form', genre: @genre %>
+
+<% if @genre.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@genre.errors.count, 'error') %>
+      prohibited this film from being created: </h2>
+
+    <ul>
+      <% @genre.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
