@@ -1,5 +1,5 @@
 <%= simple_form_for(@genre) do |f| %>
-   <%= f.input :genre, :input_html => {:style => "width: 30%;"} %>
+   <%= f.input :genre %>
 
-   <%= f.button :submit, class: "btn-primary" %>
+   <%= f.button :submit, { class: "btn-primary" } %>
 <% end %>
