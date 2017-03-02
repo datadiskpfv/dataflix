@@ -3,15 +3,18 @@
 </header>
 
 <div id="tasks">
-  <div class="col-md-1">
-    <%= link_to 'Films Area', films_path, class: "area" %><br>
+  <div class="admin-title">FILMS</div><br>
+  <div class="col-md-12 col-xs-12">
+    <%= link_to 'Films Area', films_path, class: "area" %>
     <%= link_to 'Create Film', new_film_path, class: "new" %>
   </div>
-  <div class="col-md-1 offset-md-1">
+  <div class="admin-title">GENRES</div><br>
+  <div class="col-md-12 offset-md-1 col-xs-12">
     <%= link_to 'Genres Area', genres_path, class: "area" %>
     <%= link_to 'Create Genre', new_genre_path, class: "new" %>
   </div>
-  <div class="col-md-1 offset-md-2">
+  <div class="admin-title">RATINGS</div><br>
+  <div class="col-md-12 offset-md-2 col-xs-12">
     <%= link_to 'Ratings Area', ratings_path, class: "area" %>
     <%= link_to 'Create Rating', new_rating_path, class: "new" %>
   </div>
