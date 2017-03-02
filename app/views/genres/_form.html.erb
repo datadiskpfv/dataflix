@@ -1,8 +1,5 @@
-<%= form_for(@genre) do |f| %>
-    <p>
-      <%= f.label :genre %><br>
-      <%= f.text_field :genre %>
-    </p>
+<%= simple_form_for(@genre) do |f| %>
+   <%= f.input :genre, :input_html => {:style => "width: 30%;"} %>
 
-    <%= f.submit %>
+   <%= f.button :submit, class: "btn-primary" %>
 <% end %>

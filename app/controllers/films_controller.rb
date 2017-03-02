@@ -42,7 +42,7 @@ class FilmsController < ApplicationController
 
   def destroy
     @film.destroy
-    flash[:notice] = 'Film has been deleted.'
+    flash[:alert] = 'Film has been deleted.'
 
     redirect_to @film
   end

@@ -19,7 +19,7 @@ class GenresController < ApplicationController
 
     if @genre.save
       flash[:notice] = 'Genre has been created.'
-      redirect_to @genre
+      redirect_to genres_path
     else
       flash.now[:alert] = 'Genre has not been created.'
       render 'new'
@@ -42,7 +42,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    flash[:notice] = 'Genre has been deleted.'
+    flash[:alert] = 'Genre has been deleted.'
 
     redirect_to @genre
   end

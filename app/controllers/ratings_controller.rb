@@ -42,7 +42,7 @@ class RatingsController < ApplicationController
 
   def destroy
     @rating.destroy
-    flash[:notice] = 'Rating has been deleted.'
+    flash[:alert] = 'Rating has been deleted.'
 
     redirect_to @rating
   end

@@ -1,8 +1,5 @@
-<%= form_for(@rating) do |f| %>
-    <p>
-      <%= f.label :rating %><br>
-      <%= f.text_field :rating %>
-    </p>
+<%= simple_form_for(@rating) do |f| %>
+  <%= f.input :rating, :input_html => {:style => "width: 30%;"} %>
 
-    <%= f.submit %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>

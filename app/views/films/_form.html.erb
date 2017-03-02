@@ -1,13 +1,7 @@
-<%= form_for(@film) do |f| %>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
+<%= simple_form_for(@film) do |f| %>
 
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-    </p>
+  <%= f.input :title, :input_html => {:style => "width: 30%;"} %>
+  <%= f.input :description, :as => :text, :input_html => {:rows => 10, :style => "width: 50%;"} %>
 
-    <%= f.submit %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>

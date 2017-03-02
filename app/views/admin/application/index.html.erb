@@ -3,16 +3,16 @@
 </header>
 
 <div id="tasks">
-  <div class="col-md-2">
-    <%= link_to fa_icon("plus") + ' Films Area', films_path, class: "btn btn-info" %><br>
-    <%= link_to fa_icon("plus") + ' Create Film', new_film_path, class: "btn btn-success" %>
+  <div class="col-md-1">
+    <%= link_to 'Films Area', films_path, class: "area" %><br>
+    <%= link_to 'Create Film', new_film_path, class: "new" %>
   </div>
-  <div class="col-md-2 offset-md-2">
-    <%= link_to fa_icon("plus") + ' Genres Area', genres_path, class: "btn btn-info" %>
-    <%= link_to fa_icon("plus") + ' Create Genre', new_genre_path, class: "btn btn-success" %>
+  <div class="col-md-1 offset-md-1">
+    <%= link_to 'Genres Area', genres_path, class: "area" %>
+    <%= link_to 'Create Genre', new_genre_path, class: "new" %>
   </div>
-  <div class="col-md-2 offset-md-4">
-    <%= link_to fa_icon("plus") + ' Ratings Area', ratings_path, class: "btn btn-info" %>
-    <%= link_to fa_icon("plus") + ' Create Rating', new_rating_path, class: "btn btn-success" %>
+  <div class="col-md-1 offset-md-2">
+    <%= link_to 'Ratings Area', ratings_path, class: "area" %>
+    <%= link_to 'Create Rating', new_rating_path, class: "new" %>
   </div>
 </div>
