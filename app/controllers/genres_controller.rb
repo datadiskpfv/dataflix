@@ -3,7 +3,7 @@ class GenresController < ApplicationController
   before_action :set_genre, only: [:edit, :update, :destroy]
 
   def index
-    @genres = Genre.all
+    @genres = Genre.order(:genre).all
   end
 
   def new
