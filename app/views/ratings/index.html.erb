@@ -1,14 +1,21 @@
 <header>
   <h1>Film Ratings</h1>
+  <ul class="actions">
+    <%= link_to "Create Rating", new_rating_path, class: 'new' %>
+  </ul>
 </header>
 
 <div id="ratings">
+  <table>
   <% @ratings.each do |rating| %>
-    <span class="rating"><%= rating.rating %></span>
-    <%= link_to "Edit Rating", [:edit, rating], class: 'edit', id: "edit_#{rating.rating}" %>
-    <%= link_to 'Delete Rating', rating, method: :delete, id: "delete_#{rating.rating}",
+    <tr>
+      <td><span class="rating"><%= rating.rating %></span></td>
+      <td><%= link_to "Edit Rating", [:edit, rating], class: 'edit', id: "edit_#{rating.rating}" %></td>
+      <td>&nbsp</td>
+      <td><%= link_to 'Delete Rating', rating, method: :delete, id: "delete_#{rating.rating}",
                   data: { confirm: 'Are you sure you want to delete this rating?' },
-                  class: 'delete' %>
-    <br>
+                  class: 'delete' %></td>
+    </tr>
   <% end %>
+  </table>
 </div>

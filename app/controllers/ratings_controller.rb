@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:edit, :update, :destroy]
 
   def index
-    @ratings = Rating.all
+    @ratings = Rating.order(:rating).all
   end
 
   def new
