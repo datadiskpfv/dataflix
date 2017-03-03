@@ -10,6 +10,7 @@ RSpec.feature 'Users can create new films' do
   scenario 'with validate credentials' do
     fill_in 'Title', with: 'Alien'
     fill_in 'Description', with: 'A ScFi horror movie about a crew in deep space'
+    select 'Horror', from: 'Genre1'
     click_button 'Create Film'
 
     expect(page).to have_content 'Film has been created'

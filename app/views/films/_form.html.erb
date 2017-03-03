@@ -1,7 +1,8 @@
-<%= simple_form_for(@film) do |f| %>
+<%= simple_form_for (@film) do |f| %>
 
   <%= f.input :title, input_html: { maxlength: 50 } %>
   <%= f.input :description, :as => :text, input_html: {rows: 5, maxlength: 200} %>
+  <%= f.association :genre, label: 'Genre1' %>
 
   <%= f.button :submit, { class: "btn-primary" } %>
 <% end %>
