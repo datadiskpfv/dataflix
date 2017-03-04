@@ -1,6 +1,6 @@
 class Film < ActiveRecord::Base
 
-  has_many :genre
+  belongs_to :genre1, class_name: 'Genre'
 
   validates :title, presence: true
   validates :description, presence: true

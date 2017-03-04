@@ -14,6 +14,8 @@ RSpec.feature 'Users can create new films' do
     click_button 'Create Film'
 
     expect(page).to have_content 'Film has been created'
+    expect(page).to have_content 'Alien'
+    expect(page).to have_content 'Horror'
   end
 
   scenario 'when providing invalid attributes' do

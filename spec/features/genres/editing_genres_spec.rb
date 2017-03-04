@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.feature ' Users can edit genres' do
 
   scenario 'with valid credentials' do
-    genre = FactoryGirl.create(:genre, genre: 'Horror')
+    ## removed as I have seeded the data
+    ##genre = FactoryGirl.create(:genre, genre: 'Horror')
 
     visit '/genres'
     click_link 'edit_Horror'

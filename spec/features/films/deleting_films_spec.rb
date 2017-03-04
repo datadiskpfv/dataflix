@@ -7,7 +7,7 @@ RSpec.feature ' Users can delete films' do
     film1 = FactoryGirl.create(:film, title: 'Alien', description: 'A good film')
     film2 = FactoryGirl.create(:film, title: 'Ghost Train', description: 'Another good film')
 
-    visit '/'
+    visit '/films'
     click_link 'Ghost Train'
     click_link 'Delete Film'
 
