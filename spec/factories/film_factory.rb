@@ -4,5 +4,6 @@ FactoryGirl.define do
     description 'A good film'
     genre1_id '1'
     genre2_id '3'
+    rating_id '1'
   end
 end

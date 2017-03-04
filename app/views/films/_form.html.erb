@@ -4,6 +4,7 @@
   <%= f.input :description, :as => :text, input_html: {rows: 5, maxlength: 200} %>
   <%= f.association :genre1, label: 'Genre1', prompt: "Choose a Genre" %>
   <%= f.association :genre2, label: 'Genre2', prompt: "Choose a Genre" %>
+  <%= f.association :rating, prompt: "Choose a Rating" %>
 
   <%= f.button :submit, { class: "btn-primary" } %>
 <% end %>

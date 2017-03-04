@@ -12,3 +12,11 @@ unless Genre.exists?
   Genre.create(genre: 'Action')
   Genre.create(genre: 'Western')
 end
+
+unless Rating.exists?
+  Rating.create(rating: '18')
+  Rating.create(rating: '15')
+  Rating.create(rating: '12')
+  Rating.create(rating: 'PG')
+  Rating.create(rating: 'U')
+end

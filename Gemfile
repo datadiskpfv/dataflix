@@ -30,7 +30,12 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'autoprefixer-rails'
 
 gem 'font-awesome-rails', '~> 4.3'
+
+## allow to create form easier
 gem "simple_form", "~> 3.1.0"
+
+## used to uplaod files
+gem "carrierwave", "~> 0.10.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

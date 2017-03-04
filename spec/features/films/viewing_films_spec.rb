@@ -14,5 +14,8 @@ RSpec.feature 'Users can view films' do
     within('#genre2') do
       expect(page).to have_content 'Action'
     end
+    within('#rating') do
+      expect(page).to have_content '18'
+    end
   end
 end

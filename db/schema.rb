@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304193658) do
+ActiveRecord::Schema.define(version: 20170304201706) do
 
   create_table "films", force: :cascade do |t|
     t.string   "title"
@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 20170304193658) do
     t.datetime "updated_at",  null: false
     t.integer  "genre1_id"
     t.integer  "genre2_id"
+    t.integer  "rating_id"
   end
 
   add_index "films", ["genre1_id"], name: "index_films_on_genre1_id"
   add_index "films", ["genre2_id"], name: "index_films_on_genre2_id"
+  add_index "films", ["rating_id"], name: "index_films_on_rating_id"
 
   create_table "genres", force: :cascade do |t|
     t.string   "genre"
