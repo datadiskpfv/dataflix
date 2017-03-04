@@ -11,11 +11,17 @@ RSpec.feature 'Users can create new films' do
     fill_in 'Title', with: 'Alien'
     fill_in 'Description', with: 'A ScFi horror movie about a crew in deep space'
     select 'Horror', from: 'Genre1'
+    select 'Action', from: 'Genre2'
     click_button 'Create Film'
 
     expect(page).to have_content 'Film has been created'
     expect(page).to have_content 'Alien'
-    expect(page).to have_content 'Horror'
+    within('#genre1') do
+      expect(page).to have_content 'Horror'
+    end
+    within('#genre2') do
+      expect(page).to have_content 'Action'
+    end
   end
 
   scenario 'when providing invalid attributes' do

@@ -11,10 +11,16 @@ RSpec.feature ' Users can edit films' do
 
     fill_in 'Description', with: 'A very good film'
     select 'Horror', from: 'Genre1'
+    select 'Action', from: 'Genre2'
     click_button 'Update Film'
 
     expect(page).to have_content 'Film has been updated.'
     expect(page).to have_content 'A very good film'
-    expect(page).to have_content 'Horror'
+    within('#genre1') do
+      expect(page).to have_content 'Horror'
+    end
+    within('#genre2') do
+      expect(page).to have_content 'Action'
+    end
   end
 end
