@@ -5,5 +5,6 @@ FactoryGirl.define do
     genre1_id '1'
     genre2_id '3'
     rating_id '1'
+    release_year '1979'
   end
 end

@@ -8,14 +8,14 @@ RSpec.feature 'Users can view films' do
     visit '/films'
     click_link 'Alien'
     expect(page.current_url).to eq film_url(film)
-    within('#genre1') do
-      expect(page).to have_content 'Horror'
-    end
-    within('#genre2') do
-      expect(page).to have_content 'Action'
+    expect(page).to have_content 'Alien'
+    expect(page).to have_content 'A good film'
+    expect(page).to have_content '1979'
+    within('#genre') do
+      expect(page).to have_content 'Horror / Action'
     end
     within('#rating') do
-      expect(page).to have_content '18'
+      expect(page).to have_css("img[src*='18']")
     end
   end
 end

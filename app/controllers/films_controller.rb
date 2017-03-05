@@ -57,7 +57,8 @@ class FilmsController < ApplicationController
   end
 
   def film_params
-    params.require(:film).permit(:title, :description, :genre1_id, :genre2_id, :rating_id)
+    params.require(:film).permit(:title, :description, :genre1_id, :genre2_id,
+                                 :rating_id, :image1, :image1_cache, :release_year)
   end
 
 end

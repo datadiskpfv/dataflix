@@ -2,30 +2,38 @@
   <h1><%= @film.title %></h1>
 </header>
 
-<table id="attributes">
-  <tr>
-    <th>Description: </th>
-    <td><%= @film.description %></td>
-  </tr>
-  <tr id="genre1">
-    <th>Genre1: </th>
-    <td><%= @film.genre1.genre %></td>
-  </tr>
-  <tr id="genre2">
-    <th>Genre2: </th>
-    <td><%= @film.genre2.genre %></td>
-  </tr>
-  <tr id="rating">
-    <th>Rating: </th>
-    <td><%= @film.rating.rating %></td>
-  </tr>
-</table>
+<div>
+  <div class="col-md-3">
+    <%= image_tag @film.image1, size: "250x350" %>
+  </div>
 
-<div id="tasks">
-  <div class="actions">
-    <%= link_to 'Edit Film', edit_film_path, class: 'new' %>
-    <%= link_to 'Delete Film', @film, method: :delete,
-        data: { confirm: 'Are you sure you want to delete this film?' },
-        class: 'delete' %>
+  <div class="col-md-8 col-offset-4">
+    <table id="attributes">
+      <tr>
+        <th>Description: </th>
+        <td><%= @film.description %></td>
+      </tr>
+      <tr id="genre">
+        <th>Genre: </th>
+        <td><%= @film.genre1.genre %> / <%= @film.genre2.genre %></td>
+      </tr>
+      <tr id="rating">
+        <th>Rating: </th>
+        <td><%= image_tag "#{@film.rating}.png", size: "30x30" %></td>
+      </tr>
+      <tr id="release_year">
+        <th>Release Year: </th>
+        <td><%= @film.release_year %></td>
+      </tr>
+    </table>
+
+    <div id="tasks">
+      <div class="actions">
+        <%= link_to 'Edit Film', edit_film_path, class: 'new' %>
+        <%= link_to 'Delete Film', @film, method: :delete,
+          data: { confirm: 'Are you sure you want to delete this film?' },
+          class: 'delete' %>
+      </div>
+    </div>
   </div>
 </div>

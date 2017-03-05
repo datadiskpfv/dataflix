@@ -32,10 +32,11 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails', '~> 4.3'
 
 ## allow to create form easier
-gem "simple_form", "~> 3.1.0"
+gem 'simple_form', '~> 3.1.0'
 
 ## used to uplaod files
-gem "carrierwave", "~> 0.10.0"
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

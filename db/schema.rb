@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304201706) do
+ActiveRecord::Schema.define(version: 20170305181757) do
 
   create_table "films", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "genre1_id"
     t.integer  "genre2_id"
     t.integer  "rating_id"
+    t.string   "image1"
+    t.string   "release_year"
   end
 
   add_index "films", ["genre1_id"], name: "index_films_on_genre1_id"
