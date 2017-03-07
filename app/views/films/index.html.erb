@@ -2,9 +2,14 @@
   <h1>Films</h1>
 </header>
 
-<div class="slider4">
+<div class="slider">
   <% @films.each do |film| %>
-    <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
+      <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
+  <% end %>
+</div>
+<div class="slider">
+  <% @films.each do |film| %>
+      <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
   <% end %>
 </div>
 

@@ -18,12 +18,12 @@
 //= require_tree .
 
 $(document).ready(function(){
-    $('.slider4').bxSlider({
+    $('.slider').bxSlider({
         slideWidth: 300,
         minSlides: 8,
         maxSlides: 10,
         moveSlides: 1,
-        slideMargin: 10,
+        slideMargin: 1,
         pager: false
     });
 });
