@@ -23,6 +23,7 @@ $(document).ready(function(){
         minSlides: 8,
         maxSlides: 10,
         moveSlides: 1,
-        slideMargin: 10
+        slideMargin: 10,
+        pager: false
     });
 });
