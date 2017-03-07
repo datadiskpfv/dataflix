@@ -6,6 +6,7 @@
   <%= f.association :genre2, label: 'Genre2', prompt: "Choose a Genre" %>
   <%= f.association :rating, prompt: "Choose a Rating" %>
   <%= f.input :release_year, label: 'Release Year', input_html: { maxlength: 4 } %>
+  <%= f.input :blu_ray_stock, label: 'Blu-Ray Stock' %>
   <!-- the first argument will be the parameter id, the second argument is
   <!-- is the type -->
   <%= f.input :image1, as: :file, label: "Image 1" %>

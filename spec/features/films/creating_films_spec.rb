@@ -10,6 +10,7 @@ RSpec.feature 'Users can create new films' do
   scenario 'with validate credentials' do
     fill_in 'Title', with: 'Alien'
     fill_in 'Description', with: 'A ScFi horror movie about a crew in deep space'
+    fill_in 'Blu-Ray Stock', with: 10
     select 'Horror', from: 'Genre1'
     select 'Action', from: 'Genre2'
     select '18', from: 'Rating'
@@ -20,12 +21,10 @@ RSpec.feature 'Users can create new films' do
     expect(page).to have_content 'Film has been created'
     expect(page).to have_content 'Alien'
     expect(page).to have_content '1979'
-    within('#genre') do
-      expect(page).to have_content 'Horror / Action'
-    end
-    within('#rating') do
-      expect(page).to have_css("img[src*='18']")
-    end
+
+    within('#blu_ray_stock') { expect(page).to have_content '10' }
+    within('#genre') { expect(page).to have_content 'Horror / Action' }
+    within('#rating') { expect(page).to have_css("img[src*='18']") }
   end
 
   scenario 'when providing invalid attributes' do

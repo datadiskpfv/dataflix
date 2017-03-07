@@ -11,11 +11,9 @@ RSpec.feature 'Users can view films' do
     expect(page).to have_content 'Alien'
     expect(page).to have_content 'A good film'
     expect(page).to have_content '1979'
-    within('#genre') do
-      expect(page).to have_content 'Horror / Action'
-    end
-    within('#rating') do
-      expect(page).to have_css("img[src*='18']")
-    end
+
+    within('#genre') { expect(page).to have_content 'Horror / Action' }
+    within('#rating') { expect(page).to have_css("img[src*='18']") }
+    within('#blu_ray_stock') { expect(page).to have_content '10' }
   end
 end
