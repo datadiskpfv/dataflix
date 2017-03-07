@@ -3,7 +3,7 @@
 </header>
 
 <div>
-  <div class="col-md-3">
+  <div class="col-md-3" id="main_image">
     <%= image_tag @film.image1, size: "250x350" %>
   </div>
 
@@ -28,6 +28,14 @@
       <tr id="blu_ray_stock">
         <th>Blu-Ray Stock: </th>
         <td><%= @film.blu_ray_stock %></td>
+      </tr>
+      <tr id="dvd_stock">
+        <th>DVD Stock: </th>
+        <td><%= @film.dvd_stock %></td>
+      </tr>
+      <tr id="film_active">
+        <th>Film Active: </th>
+        <td><%= @film.active %></td>
       </tr>
     </table>
 

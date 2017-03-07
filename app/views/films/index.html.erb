@@ -2,9 +2,28 @@
   <h1>Films</h1>
 </header>
 
+
+<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="0" id="myCarousel">
+  <div class="carousel-inner">
+    <% @first = true %>
+    <% @films.each do |film| %>
+      <% if @first %>
+        <% @first = false %>
+        <div class="item active">
+      <% else %>
+        <div class="item">
+      <% end %>
+        <div class="col-md-2 col-sm-6 col-xs-12"><%=link_to image_tag(film.image1, size: '141x200', class: "img-responsive"), film%></div>
+      </div>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+</div>
+
 <div id="films">
   <% @films.each do |film| %>
-    <h2><%= link_to film.title, film %></h2>
+    <h2><%= link_to image_tag(film.image1, size: "141x200"), film %></h2>
     <p><% film.description %></p>
   <% end %>
 </div>

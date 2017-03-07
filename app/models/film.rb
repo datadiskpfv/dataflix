@@ -8,4 +8,10 @@ class Film < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :genre1_id, presence: true
+  validates :genre2_id, presence: true
+  validates :rating_id, presence: true
+  #validates :image1, presence: true
+  validates :release_year, presence: true
+  validates :blu_ray_stock, presence: true
 end

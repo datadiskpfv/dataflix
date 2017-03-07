@@ -7,6 +7,7 @@ RSpec.feature 'Users can view films' do
 
     visit '/films'
     click_link 'Alien'
+
     expect(page.current_url).to eq film_url(film)
     expect(page).to have_content 'Alien'
     expect(page).to have_content 'A good film'
@@ -14,6 +15,9 @@ RSpec.feature 'Users can view films' do
 
     within('#genre') { expect(page).to have_content 'Horror / Action' }
     within('#rating') { expect(page).to have_css("img[src*='18']") }
+    #within('#main_image') { expect(page).to have_css("img[src*='alien']") }
     within('#blu_ray_stock') { expect(page).to have_content '10' }
+    within('#dvd_stock') { expect(page).to have_content '5' }
+    within('#film_active') { expect(page).to have_content 'true' }
   end
 end
