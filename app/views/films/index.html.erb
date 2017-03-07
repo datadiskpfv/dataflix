@@ -2,20 +2,17 @@
   <h1>Films</h1>
 </header>
 
-<div class="slider">
-  <% @films.each do |film| %>
+<div class="carousel">
+  <span>Action</span>
+  <div class="slider">
+    <% @films.each do |film| %>
       <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
-  <% end %>
-</div>
-<div class="slider">
-  <% @films.each do |film| %>
+    <% end %>
+  </div>
+  <span>Thriller</span>
+  <div class="slider">
+    <% @films.each do |film| %>
       <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
-  <% end %>
-</div>
-
-<div id="films">
-  <% @films.each do |film| %>
-    <h2><%= link_to image_tag(film.image1, size: "141x200"), film %></h2>
-    <p><% film.description %></p>
-  <% end %>
+    <% end %>
+  </div>
 </div>
