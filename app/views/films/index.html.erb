@@ -4,7 +4,7 @@
 
 <div class="slider4">
   <% @films.each do |film| %>
-    <div class="slide"><%= image_tag(film.image1, size: "141x200") %></div>
+    <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
   <% end %>
 </div>
 
