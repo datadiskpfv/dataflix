@@ -14,4 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bxslider
 //= require_tree .
+
+$(document).ready(function(){
+    $('.slider4').bxSlider({
+        slideWidth: 300,
+        minSlides: 8,
+        maxSlides: 10,
+        moveSlides: 1,
+        slideMargin: 10
+    });
+});
