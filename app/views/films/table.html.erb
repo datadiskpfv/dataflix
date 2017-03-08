@@ -3,8 +3,10 @@
 </header>
 
 <table>
+  <% @films.each do |film| %>
   <tr>
-    <th></th>
+    <th><%= film.title %></th>
     <td></td>
   </tr>
+  <% end %>
 </table>

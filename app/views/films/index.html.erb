@@ -9,7 +9,7 @@
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
       <% end %>
-    <div class="slide"><%= link_to 'Action', table_films_path %></div>
+    <div class="slide"><%= link_to 'Action', {:controller => "films", :action => "table", :genre1 => 'action' } %></div>
     </div>
   </div>
 

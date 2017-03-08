@@ -11,6 +11,7 @@ class FilmsController < ApplicationController
   end
 
   def table
+    #@films = Film.find(params[:genre1])
     @films = Film.all
   end
 
