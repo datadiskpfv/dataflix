@@ -11,8 +11,10 @@ class FilmsController < ApplicationController
   end
 
   def table
-    #@films = Film.find(params[:genre1])
-    @films = Film.all
+    genre = Genre.where(genre: params[:genre1])
+    puts "Genre ID: #{genre.ids}"
+    @films = Film.where(genre1: genre.ids)
+    #@films = Film.all
   end
 
   def new

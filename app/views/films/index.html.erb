@@ -9,7 +9,7 @@
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
       <% end %>
-    <div class="slide"><%= link_to 'Action', {:controller => "films", :action => "table", :genre1 => 'action' } %></div>
+    <div class="slide"><%= link_to 'Action', {:controller => "films", :action => "table", :genre1 => 'Action' } %></div>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
       <% end %>
-      <div class="slide"><%= link_to 'Thriller', root_path %></div>
+      <div class="slide"><%= link_to 'Thriller', {:controller => "films", :action => "table", :genre1 => 'Thriller' } %></div>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
       <% end %>
-    <div class="slide"><%= link_to 'Horror', root_path %></div>
+    <div class="slide"><%= link_to 'Horror', {:controller => "films", :action => "table", :genre1 => 'Horror' } %></div>
     </div>
   </div>
 </div>

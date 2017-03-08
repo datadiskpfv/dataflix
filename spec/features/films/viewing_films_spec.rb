@@ -2,10 +2,13 @@ require 'rails_helper'
 
 RSpec.feature 'Users can view films' do
 
-  scenario 'with the film details', js: true do
+  before do
     film = FactoryGirl.create(:film, title: 'Alien', description: 'A good film')
 
     visit '/films'
+  end
+
+  scenario 'with the film details', js: true do
     click_link 'Action'
     #within('.action') { find(:css, 'img[src*="alien.jpg"]').click }
     #byebug
