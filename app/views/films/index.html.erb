@@ -3,16 +3,33 @@
 </header>
 
 <div class="carousel">
-  <span>Action</span>
-  <div class="slider">
-    <% @films.each do |film| %>
-      <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
-    <% end %>
+  <div class="action">
+    <span><b>Action</b></span>
+    <div class="slider">
+      <% @films.each do |film| %>
+        <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
+      <% end %>
+    <div class="slide"><%= link_to 'Action', table_films_path %></div>
+    </div>
   </div>
-  <span>Thriller</span>
-  <div class="slider">
-    <% @films.each do |film| %>
-      <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
-    <% end %>
+
+  <div class="thriller">
+    <span><b>Thriller</b></span>
+    <div class="slider">
+      <% @films.each do |film| %>
+        <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
+      <% end %>
+      <div class="slide"><%= link_to 'Thriller', root_path %></div>
+    </div>
+  </div>
+
+  <div class="horror">
+    <span><b>Horror</b></span>
+    <div class="slider">
+      <% @films.each do |film| %>
+        <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
+      <% end %>
+    <div class="slide"><%= link_to 'Horror', root_path %></div>
+    </div>
   </div>
 </div>

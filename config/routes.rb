@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     root 'application#index'
   end
 
-  resources :films
+  resources :films do
+    collection do
+      get :table
+    end
+  end
+
   resources :genres
   resources :ratings
 
