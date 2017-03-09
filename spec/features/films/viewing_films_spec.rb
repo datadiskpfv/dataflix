@@ -9,7 +9,7 @@ RSpec.feature 'Users can view films' do
   end
 
   scenario 'with the film details', js: true do
-    click_link 'Action'
+    within('.grey_box') { click_link 'Action' }
     #within('.action') { find(:css, 'img[src*="alien.jpg"]').click }
     #byebug
 

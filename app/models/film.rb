@@ -14,4 +14,6 @@ class Film < ActiveRecord::Base
   #validates :image1, presence: true
   validates :release_year, presence: true
   validates :blu_ray_stock, presence: true
+
+  validates_uniqueness_of :title, :scope => :release_year
 end

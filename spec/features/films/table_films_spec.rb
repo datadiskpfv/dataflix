@@ -10,7 +10,7 @@ RSpec.feature 'Test films table view' do
   end
 
   scenario 'list action only movies' do
-    click_link 'Action'
+    within('.grey_box') { click_link 'Action' }
     expect(page).to have_content 'Films (table)'
     expect(page).to have_content 'Black Mass'
     expect(page).not_to have_content 'Alien'

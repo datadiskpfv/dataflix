@@ -5,7 +5,7 @@ FactoryGirl.define do
     genre1_id '3'
     genre2_id '1'
     rating_id '1'
-    image1 'alien.jpg'
+    image1 '/uploads/film_images/alien.jpg'
     release_year '1979'
     blu_ray_stock '10'
     dvd_stock '5'

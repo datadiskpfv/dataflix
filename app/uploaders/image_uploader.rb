@@ -16,6 +16,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/film_images"
   end
 
+  ## a dummy method to stop carrierwave deleting the image file
+  def remove!
+    puts "dont delete image"
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
