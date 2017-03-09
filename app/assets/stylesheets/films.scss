@@ -32,8 +32,21 @@
 .film_table {
   @extend .table;
   @extend .table-responsive;
+  @extend .table-bordered;
+  @extend .text-center;
 
   border-collapse:separate;
   border-spacing:5px 5px;
-  border: none;
+}
+
+.show-title {
+  font-size: 120%;
+}
+
+.show-release {
+  font-size: 90%;
+}
+
+.rental-button {
+  margin-top: 5px;
 }
