@@ -4,7 +4,7 @@
 
 <div class="carousel">
   <div class="action">
-    <span><b>Action</b></span>
+    <span class="genre-title">Action</span> <span class="genre-link"><%= link_to 'View All Action Films', {:controller => "films", :action => "table", :genre1 => 'Action'} %></span>
     <div class="slider">
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
