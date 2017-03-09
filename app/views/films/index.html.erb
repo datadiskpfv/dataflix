@@ -14,7 +14,7 @@
   </div>
 
   <div class="thriller">
-    <span><b>Thriller</b></span>
+    <span class="genre-title">Thriller</span> <span class="genre-link"><%= link_to 'View All Thriller Films', {:controller => "films", :action => "table", :genre1 => 'Thriller'} %></span>
     <div class="slider">
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="horror">
-    <span><b>Horror</b></span>
+    <span class="genre-title">Horror</span> <span class="genre-link"><%= link_to 'View All Horror Films', {:controller => "films", :action => "table", :genre1 => 'Horror'} %></span>
     <div class="slider">
       <% @films.each do |film| %>
         <div class="slide"><%= link_to image_tag(film.image1, size: "141x200"), film %></div>
