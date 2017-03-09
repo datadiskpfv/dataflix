@@ -17,7 +17,7 @@ RSpec.feature 'Users can create new films' do
     select 'Action', from: 'Genre2'
     select '18', from: 'Rating'
     fill_in 'Release Year', with: '1979'
-    attach_file 'Image 1', 'spec/fixtures/alien.jpg'
+    attach_file 'Main Image', 'spec/fixtures/alien.jpg'
     click_button 'Create Film'
 
     expect(page).to have_content 'Film has been created'

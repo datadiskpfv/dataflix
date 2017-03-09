@@ -11,5 +11,10 @@ RSpec.feature ' Users can edit ratings' do
 
     expect(page).to have_content 'Rating has been updated.'
     expect(page).to have_content '16'
+
+    visit '/ratings'
+    click_link "edit_16"
+    fill_in 'Rating', with: '18'
+    click_button 'Update Rating'
   end
 end

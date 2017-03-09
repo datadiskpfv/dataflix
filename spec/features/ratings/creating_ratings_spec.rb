@@ -8,10 +8,13 @@ RSpec.feature 'Users can create new ratings' do
   end
 
   scenario 'with validate credentials' do
-    fill_in 'Rating', with: '18'
+    fill_in 'Rating', with: '20'
     click_button 'Create Rating'
 
     expect(page).to have_content 'Rating has been created.'
+
+    visit '/ratings'
+    click_link 'delete_20'
   end
 
   scenario 'when providing invalid attributes' do

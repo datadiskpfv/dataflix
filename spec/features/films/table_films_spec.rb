@@ -3,10 +3,13 @@ require 'rails_helper'
 RSpec.feature 'Test films table view' do
 
   before do
-    film1 = FactoryGirl.create(:film, title: 'Black Mass', description: 'A good film', genre1_id: '3')
+    film1 = FactoryGirl.create(:film, title: 'Black Mass', description: 'A good film', genre1_id: '3', image1: 'black_mass.jpg')
     film2 = FactoryGirl.create(:film, title: 'Alien', description: 'A good film', genre1_id: '1')
 
     visit '/films'
+
+    puts "Film1 image: #{film1.image1}"
+    puts "Film1 image: #{film2.image1}"
   end
 
   scenario 'list action only movies' do

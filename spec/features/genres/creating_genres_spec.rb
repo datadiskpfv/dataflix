@@ -8,10 +8,12 @@ RSpec.feature 'Users can create new genres' do
   end
 
   scenario 'with validate credentials' do
-    fill_in 'Genre', with: 'Horror'
+    fill_in 'Genre', with: 'Dataflix'
     click_button 'Create Genre'
 
     expect(page).to have_content 'Genre has been created'
+
+    click_link 'delete_Dataflix'
   end
 
   scenario 'when providing invalid attributes' do

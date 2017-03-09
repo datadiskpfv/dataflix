@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit films' do
 
-  scenario 'with valid credentials', js: true do
-    film = FactoryGirl.create(:film, title: 'Alien', description: 'A good film')
+  scenario 'with valid credentials' do
+    film = FactoryGirl.create(:film, title: 'Alien', description: 'A good film', image1: 'alien.jpg')
+
+    #film.mimage = "hello"
+    #film.save
+
+    puts "Film main image is: #{film.image1}"
 
     visit '/films/1'
     click_link 'Edit Film'
@@ -26,6 +31,7 @@ RSpec.feature ' Users can edit films' do
     within('#dvd_stock') { expect(page).to have_content 5 }
     within('#genre') { expect(page).to have_content 'Horror / Action' }
     within('#rating') { expect(page).to have_css("img[src*='18']") }
+    within('#main_image') { expect(page).to have_css("img[src*='alien.jpg']") }
     within('#film_active') { expect(page).to have_content 'true' }
   end
 end
