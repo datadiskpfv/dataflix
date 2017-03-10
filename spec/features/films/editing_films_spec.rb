@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature ' Users can edit films' do
 
   scenario 'with valid credentials' do
-    film = FactoryGirl.create(:film, title: 'Alien', description: 'A good film', image1: 'alien.jpg')
+    film = FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film', image1: 'alien.jpg')
 
     #film.mimage = "hello"
     #film.save

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can view films' do
 
   before do
-    film = FactoryGirl.create(:film, title: 'Alien', description: 'A good film')
+    film = FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film')
 
     visit '/films/1'
   end
