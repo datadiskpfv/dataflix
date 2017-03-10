@@ -1,10 +1,21 @@
 <header>
-  <h2>Films (table)</h2>
+  <h2>Films (<%= @table_title %>)</h2>
 </header>
 
-<div>
-  <table class="film_table">
-    <% @films.in_groups_of(4, false) do |film_array| %>
+<div id="wrapper">
+
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">Action</li>
+      <li>Thriller</li>
+      <li>Horror</li>
+    </ul>
+  </div>
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <table class="film_table">
+      <% @films.in_groups_of(4, false) do |film_array| %>
       <tr>
         <% film_array.each do |film| %>
           <td>
@@ -28,6 +39,8 @@
           </td>
         <% end %>
       </tr>
-    <% end %>
-  </table>
+      <% end %>
+      </table>
+    </div>
+  </div>
 </div>

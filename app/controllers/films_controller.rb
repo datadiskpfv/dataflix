@@ -12,10 +12,11 @@ class FilmsController < ApplicationController
 
   def table
     genre = Genre.where(genre: params[:genre1])
-    #@table_name = "#{genre.genre}"
-    puts "Genre ID: #{genre.ids}"
+    @table_title = "#{genre[0].genre}"
+
+    #puts "Genre ID: #{genre.ids}"
+    #puts "Genre Name: #{genre[0].genre}"
     @films = Film.where(genre1: genre.ids)
-    #@films = Film.all
   end
 
   def new
