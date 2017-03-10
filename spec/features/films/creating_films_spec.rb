@@ -29,7 +29,7 @@ RSpec.feature 'Users can create new films' do
     within('#genre') { expect(page).to have_content 'Horror / Action' }
     within('#rating') { expect(page).to have_css("img[src*='18']") }
     within('#film_active') { expect(page).to have_content 'true' }
-    #within('#main_image') { expect(page).to have_css("img[src*='alien']") }
+    within('#main_image') { expect(page).to have_css("img[src*='alien']") }
   end
 
   scenario 'when providing invalid attributes' do
