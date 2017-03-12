@@ -36,7 +36,7 @@
   @extend .text-center;
 
   border-collapse:separate;
-  border-spacing:5px 5px;
+  //border-spacing:5px 5px;
 }
 
 .show-title {
@@ -49,4 +49,36 @@
 
 .rental-button {
   margin-top: 5px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 150px;
+  height: 100%;
+  margin-left: -150px;
+  background: #fff;
+}
+
+#wrapper #sidebar-wrapper {
+  width: 100px;
+}
+
+#wrapper #page-content-wrapper {
+  position: absolute;
+  width: 100%;
+  padding-left: 80px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 30px;
 }
