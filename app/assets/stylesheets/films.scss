@@ -61,13 +61,14 @@
 }
 
 #wrapper #sidebar-wrapper {
-  width: 100px;
+  width: 150px;
 }
 
 #wrapper #page-content-wrapper {
-  position: absolute;
-  width: 100%;
-  padding-left: 80px;
+  //position: absolute;
+  width: 90%;
+  padding-left: 50px;
+  float: right;
 }
 
 /* Sidebar Styles */

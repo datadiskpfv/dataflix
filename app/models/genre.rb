@@ -1,6 +1,6 @@
 class Genre < ActiveRecord::Base
 
-  has_many :films
+  has_many :films, foreign_key: "genre1_id"
 
   validates :genre, presence: true, uniqueness: true
 

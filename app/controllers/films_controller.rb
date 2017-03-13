@@ -16,10 +16,6 @@ class FilmsController < ApplicationController
 
     @genres = Genre.all
 
-    @genres.each do |genre_count|
-      @genre_count = Films
-    end
-
     #puts "Genre ID: #{genre.ids}"
     #puts "Genre Name: #{genre[0].genre}"
     @films = Film.where(genre1: genre.ids)
