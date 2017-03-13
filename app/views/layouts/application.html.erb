@@ -46,17 +46,37 @@
 
 <!-- below code does not always work when in application js file -->
 <script>
-    $(document).ready(function(){
-        $('.slider').bxSlider({
-            slideWidth: 300,
-            minSlides: 8,
-            maxSlides: 10,
-            moveSlides: 1,
-            slideMargin: 5,
-            pager: false,
-            adaptiveHeight: true,
-        });
-    });
+  var slider;
+  function bxslider(){
+      var width = $(document).width();
+      if (width>760) {
+          slider = $('.slider').bxSlider({
+              slideWidth: 300,
+              minSlides: 8,
+              maxSlides: 10,
+              moveSlides: 1,
+              slideMargin: 3,
+              pager: false,
+              adaptiveHeight: true,
+          });
+      }
+      if(width<=760){
+          slider = $('.slider').bxSlider({
+              slideWidth:200,
+              minSlides: 3,
+              maxSlides: 7,
+              moveSlides: 1,
+              slideMargin: 3,
+              pager: false,
+              adaptiveHeight: true,
+          });
+      }
+      slider.reloadSlider();
+  }
+
+  $(window).on("resize load", function(){
+      bxslider();
+  });
 </script>
 
 </body>
