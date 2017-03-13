@@ -8,41 +8,44 @@
     <ul class="sidebar-nav">
       <% @genres.each do |genre| %>
 
-      <li><%= link_to raw("<span>#{genre.genre}</span><span> <small>(#{genre.films.size})</small></span>"),
+      <li><%= link_to raw("<span>#{genre.genre}</span> <span><small>(#{genre.films.size})</small></span>"),
                       {:controller => "films", :action => "table", :genre1 => "#{genre.genre}" } %></li>
       <% end %>
     </ul>
   </div>
 
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <table class="film_table">
-      <% @films.in_groups_of(4, false) do |film_array| %>
-      <tr>
-        <% film_array.each do |film| %>
-          <td>
-            <%= image_tag(film.image1, size: "141x200") %>
-            <div>
-              <span class="show-title"><%= link_to film.title, film_path(film) %></span> &nbsp
-              <span class="show-release"><%= film.release_year %></span>
-            </div>
-            <div>
-              <% if film.blu_ray_stock? %>
-                  <%= link_to 'blu-ray', film_path(film) %>,
-              <% end %>
-              <% if film.dvd_stock? %>
-                  <%= link_to 'dvd', film_path(film) %>
-              <% end %>
-              <%= image_tag(film.rating, size: "20x20") %>
-            </div>
-            <div>
-              <button type="button" class="btn btn-warning btn-xs rental-button">Add to Rental List</button>
-            </div>
-          </td>
-        <% end %>
-      </tr>
-      <% end %>
-      </table>
+  <div class="row text-center film-panel">
+    <% @films.each do |film| %>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a href="#">
+            <%= image_tag(film.image1, size: "141x200", class: "img-thumbnail img-responsive") %>
+          </a>
+        </div>
+        <div class="panel-footer">
+          <div class="show-title">
+            <%= link_to film.title, film_path(film) %>
+          </div>
+          <div class="show-release">
+            <%= film.release_year %>
+          </div>
+          <div>
+          <% if film.blu_ray_stock? %>
+              <%= link_to 'blu-ray', film_path(film) %>,
+          <% end %>
+          <% if film.dvd_stock? %>
+              <%= link_to 'dvd', film_path(film) %>
+          <% end %>
+          <%= image_tag(film.rating, size: "20x20") %>
+          </div>
+          <div>
+          <button type="button" class="btn btn-warning btn-xs rental-button">Add to Rental List</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <% end %>
   </div>
+
 </div>

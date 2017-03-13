@@ -29,14 +29,8 @@
   padding-left: 2px;
 }
 
-.film_table {
-  @extend .table;
-  @extend .table-responsive;
-  @extend .table-bordered;
-  @extend .text-center;
-
-  border-collapse:separate;
-  //border-spacing:5px 5px;
+.film-panel {
+  padding-left: 150px;
 }
 
 .show-title {
