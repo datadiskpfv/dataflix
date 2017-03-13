@@ -47,9 +47,11 @@
 <!-- below code does not always work when in application js file -->
 <script>
   var slider;
+
   function bxslider(){
       var width = $(document).width();
-      if (width>760) {
+
+      if (width>555) {
           slider = $('.slider').bxSlider({
               slideWidth: 300,
               minSlides: 8,
@@ -60,21 +62,23 @@
               adaptiveHeight: true,
           });
       }
-      if(width<=760){
+
+      if(width<=555){
           slider = $('.slider').bxSlider({
               slideWidth:200,
               minSlides: 3,
-              maxSlides: 7,
+              maxSlides: 5,
               moveSlides: 1,
               slideMargin: 3,
               pager: false,
               adaptiveHeight: true,
           });
       }
+
       slider.reloadSlider();
   }
 
-  $(window).on("resize load", function(){
+  $(window).on("resize load orientationchange", function(){
       bxslider();
   });
 </script>
