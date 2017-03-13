@@ -8,7 +8,8 @@
     <ul class="sidebar-nav">
       <% @genres.each do |genre| %>
 
-      <li><%= link_to raw("<span>#{genre.genre}</span><span> <small>(#{genre.films.size})</small></span>"), {:controller => "films", :action => "table", :genre1 => "#{genre.genre}" } %></li>
+      <li><%= link_to raw("<span>#{genre.genre}</span><span> <small>(#{genre.films.size})</small></span>"),
+                      {:controller => "films", :action => "table", :genre1 => "#{genre.genre}" } %></li>
       <% end %>
     </ul>
   </div>
