@@ -14,6 +14,8 @@
     </ul>
   </div>
 
+  <div class="table-paginate">
+  <%= will_paginate %>
   <div class="row text-center film-panel">
     <% @films.each do |film| %>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -46,6 +48,8 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <%= will_paginate %>
   </div>
 
 </div>

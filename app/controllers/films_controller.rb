@@ -18,7 +18,8 @@ class FilmsController < ApplicationController
 
     #puts "Genre ID: #{genre.ids}"
     #puts "Genre Name: #{genre[0].genre}"
-    @films = Film.where(genre1: genre.ids)
+    @films = Film.where(genre1: genre.ids).paginate(:page => params[:page], :per_page => 6)
+    ##@films = Film.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
