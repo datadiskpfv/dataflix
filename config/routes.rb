@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :films do
     collection do
       get :table
+      post :search_table
     end
   end
 

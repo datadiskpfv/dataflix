@@ -1,18 +1,8 @@
 <header>
-   <h2>Films (<%= @table_title %>)</h2>
+   <h2>Films found</h2>
 </header>
 
 <div id="wrapper">
-
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <% @genres.each do |genre| %>
-
-      <li><%= link_to raw("<span>#{genre.genre}</span> <span><small>(#{genre.films.where(active: true).size})</small></span>"),
-                      {:controller => "films", :action => "table", :genre1 => "#{genre.genre}" } %></li>
-      <% end %>
-    </ul>
-  </div>
 
   <div class="table-paginate">
   <%= will_paginate %>

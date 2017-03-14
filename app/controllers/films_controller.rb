@@ -20,7 +20,12 @@ class FilmsController < ApplicationController
     #puts "Genre Name: #{genre[0].genre}"
 
     ## added pagination using will_paginate
-    @films = Film.where(genre1: genre.ids).paginate(:page => params[:page], :per_page => 6)
+    @films = Film.where(genre1: genre.ids, active: true).paginate(:page => params[:page], :per_page => 6)
+  end
+
+  def search_table
+    @genres = Genre.all
+    @films = Film.search(params[:search]).where(active: true).paginate(:page => params[:page], :per_page => 6)
   end
 
   def new

@@ -7,8 +7,8 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -25,10 +25,22 @@
     <div class="collapse navbar-collapse" id="collapse">
       <ul class="nav navbar-nav">
         <li class="<%= "active" if current_page?("/") %>">
-          <%= link_to 'Home', root_path %>
+          <%= link_to 'Home',  root_path %>
         </li>
         <li class="<%= "active" if current_page?("/admin") %>">
           <%= link_to 'Administration', admin_root_path %>
+        </li>
+        <li>
+          <div class="search-bar">
+            <%= form_tag search_table_films_path, :method => 'search_table', class: 'input-group'  do %>
+                <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for film...' %>
+                <span class="input-group-btn">
+                  <%= button_tag( :class => "btn") do %>
+                      <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </span>
+            <% end %>
+          </div>
         </li>
       </ul>
     </div>
@@ -78,7 +90,7 @@
       slider.reloadSlider();
   }
 
-  $(window).on("resize load orientationchange", function(){
+  $(window).on("resize load orientationchange page:change", function(){
       bxslider();
   });
 </script>

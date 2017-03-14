@@ -16,4 +16,9 @@ class Film < ActiveRecord::Base
   validates :blu_ray_stock, presence: true
 
   validates_uniqueness_of :title, :scope => :release_year
+
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+  end
+
 end
