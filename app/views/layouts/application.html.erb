@@ -31,7 +31,7 @@
           <%= link_to 'Administration', admin_root_path %>
         </li>
         <li>
-          <div class="search-bar">
+          <div class="search-bar" style="width: 400px;">
             <%= form_tag search_table_films_path, :method => 'search_table', class: 'input-group'  do %>
                 <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for film...' %>
                 <span class="input-group-btn">

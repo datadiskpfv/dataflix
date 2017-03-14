@@ -25,7 +25,9 @@ class FilmsController < ApplicationController
 
   def search_table
     @genres = Genre.all
-    @films = Film.search(params[:search]).where(active: true).paginate(:page => params[:page], :per_page => 6)
+    @search_string = params[:search]
+
+    @films = Film.search(@search_string).where(active: true).paginate(:page => params[:page], :per_page => 6)
   end
 
   def new
