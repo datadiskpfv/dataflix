@@ -17,6 +17,9 @@ class Film < ActiveRecord::Base
 
   validates_uniqueness_of :title, :scope => :release_year
 
+  scope :active_t, -> { where(active: true) }
+  scope :active_f, -> { where(active: false) }
+
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
   end
