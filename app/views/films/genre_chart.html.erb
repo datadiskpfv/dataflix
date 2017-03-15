@@ -1,14 +1,24 @@
 <div>
   <div class="row">
     <div class="col-xs-6 charts">
-      <h3>Genre Data Chart</h3>
+      <h3>Genre 1 Data Chart</h3>
       Chart Data: <%= @chart_data %>
       <%= pie_chart @chart_data, width: "600px", height: "400px" %>
     </div>
     <div class="col-xs-6 charts">
-      <h3>Genre Data Chart</h3>
+      <h3>Genre 2 Data Chart</h3>
+      Chart Data: <%= Film.active_t.joins(:genre2).group(:genre).count %>
+      <%= pie_chart Film.active_t.joins(:genre2).group(:genre).count, width: "600px", height: "400px" %>
+    </div>
+    <div class="col-xs-6 charts">
+      <h3>Genre 1 Data Chart</h3>
       Chart Data: <%= @chart_data %>
       <%= column_chart @chart_data %>
+    </div>
+    <div class="col-xs-6 charts">
+      <h3>Genre 2 Data Chart</h3>
+      Chart Data: <%= Film.active_t.joins(:genre2).group(:genre).count %>
+      <%= column_chart Film.active_t.joins(:genre2).group(:genre).count %>
     </div>
   </div>
 </div>

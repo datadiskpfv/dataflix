@@ -32,8 +32,8 @@ class FilmsController < ApplicationController
   end
 
   def genre_chart
-    @chart_data = Genre.joins(:films).group(:genre).count
-    puts "Controller chart_data: #{@chart_data}"
+    ##@chart_data = Genre.joins(:films).group(:genre).count
+    @chart_data = Film.active_t.joins(:genre1).group(:genre).count
   end
 
   def new
