@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   ## the administration area
   namespace :admin do
     root 'application#index'
+    resources :countries
+    resources :counties
   end
 
   resources :films do

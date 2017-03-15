@@ -1,0 +1,18 @@
+<header>
+  <h1>Edit Country</h1>
+</header>
+
+<%= render 'form', country: @country %>
+
+<% if @country.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@country.errors.count, 'error') %>
+      prohibited this film from being created: </h2>
+
+    <ul>
+      <% @country.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<header>
+  <h1>Countries</h1>
+  <ul class="actions">
+    <%= link_to "Create Country", new_admin_country_path, class: 'new' %>
+  </ul>
+</header>
+
+<div id="countries">
+  <table>
+    <% @countries.each do |countries| %>
+      <tr>
+        <td><span class="country"><%= countries.country %></span></td>
+        <td><%= link_to 'Edit country', [:edit, :admin, countries], class: 'edit', id: "edit_#{countries.country}" %></td>
+        <td>&nbsp</td>
+        <td><%= link_to 'Delete country', [:admin, countries], method: :delete, id: "delete_#{countries.country}",
+                  data: { confirm: 'Are you sure you want to delete this country?' },
+                  class: 'delete' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @country] do |f| %>
+
+   <!-- added as: :string because there is a gem called country and it get confused -->
+   <%= f.input :country, as: :string %>
+   <%= f.button :submit, { class: "btn-primary" } %>
+<% end %>
