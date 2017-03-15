@@ -31,6 +31,11 @@ class FilmsController < ApplicationController
     @films = Film.search(@search_string).active_t.paginate(:page => params[:page], :per_page => 6)
   end
 
+  def genre_chart
+    @chart_data = Genre.joins(:films).group(:genre).count
+    puts "Controller chart_data: #{@chart_data}"
+  end
+
   def new
     @film = Film.new
   end

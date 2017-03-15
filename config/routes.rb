@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :table
       get :search_table
       post :search_table
+      get :genre_chart
     end
   end
 

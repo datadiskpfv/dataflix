@@ -1,0 +1,14 @@
+<div>
+  <div class="row">
+    <div class="col-xs-6 charts">
+      <h3>Genre Data Chart</h3>
+      Chart Data: <%= @chart_data %>
+      <%= pie_chart @chart_data, width: "600px", height: "400px" %>
+    </div>
+    <div class="col-xs-6 charts">
+      <h3>Genre Data Chart</h3>
+      Chart Data: <%= @chart_data %>
+      <%= column_chart @chart_data %>
+    </div>
+  </div>
+</div>

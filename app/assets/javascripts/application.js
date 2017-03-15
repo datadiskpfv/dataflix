@@ -16,6 +16,7 @@
 // require turbolinks     - removed due to bxslider code in main layout
 //= require bootstrap-sprockets
 //= require bxslider
+//= require chartkick
 //= require_tree .
 
 $("#menu-toggle").click(function(e) {
