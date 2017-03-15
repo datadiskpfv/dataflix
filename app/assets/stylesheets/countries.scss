@@ -1,3 +1,14 @@
 // Place all the styles related to the countries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.country {
+  font-size: 20px;
+  margin-right: 10px;
+  position:relative;
+  bottom: 5px;
+}
+
+a.edit, a.delete {
+  margin-bottom: 10px;
+}
