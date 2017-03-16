@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     root 'application#index'
     resources :countries
     resources :counties
+    resources :postcodes
+    resources :addresses
   end
 
   resources :films do

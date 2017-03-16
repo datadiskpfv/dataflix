@@ -1,0 +1,18 @@
+<header>
+  <h1>Edit County</h1>
+</header>
+
+<%= render 'form', county: @county %>
+
+<% if @county.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@county.errors.count, 'error') %>
+      prohibited this film from being created: </h2>
+
+    <ul>
+      <% @county.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

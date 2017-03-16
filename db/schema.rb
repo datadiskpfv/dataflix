@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315125619) do
+ActiveRecord::Schema.define(version: 20170316082659) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "house_name"
+    t.string   "house_number"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "town"
+    t.string   "city"
+    t.integer  "postcode_id"
+    t.integer  "county_id"
+    t.integer  "country_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "addresses", ["country_id"], name: "index_addresses_on_country_id"
+  add_index "addresses", ["county_id"], name: "index_addresses_on_county_id"
+  add_index "addresses", ["postcode_id"], name: "index_addresses_on_postcode_id"
 
   create_table "counties", force: :cascade do |t|
     t.string   "county"
@@ -53,6 +71,12 @@ ActiveRecord::Schema.define(version: 20170315125619) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postcodes", force: :cascade do |t|
+    t.string   "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

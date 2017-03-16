@@ -1,0 +1,15 @@
+<%= simple_form_for [:admin, @address] do |f| %>
+
+   <%= f.input :house_name %>
+   <%= f.input :house_number %>
+   <%= f.input :address1 %>
+   <%= f.input :address2 %>
+   <%= f.input :town %>
+   <%= f.input :city %>
+
+   <%= f.association :postcode, label: 'postcode', prompt: "Choose a Postcode" %>
+   <%= f.association :county, label: 'County', prompt: "Choose a County" %>
+   <%= f.association :country, label: 'Country', prompt: "Choose a Country" %>
+
+   <%= f.button :submit, { class: "btn-primary" } %>
+<% end %>

@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @county] do |f| %>
+
+   <%= f.input :county %>
+   <%= f.association :country, label: 'Country', prompt: "Choose a Country" %>
+   <%= f.button :submit, { class: "btn-primary" } %>
+<% end %>
