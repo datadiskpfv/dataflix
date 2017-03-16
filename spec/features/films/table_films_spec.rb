@@ -14,7 +14,7 @@ RSpec.feature 'Test films table view' do
     puts "Film2 image: #{film2.image1}"
   end
 
-  scenario 'list action only movies' do
+  scenario 'list action only movies', js: true do
     within('.grey_box') { click_link 'Action' }
 
     expect(page).to have_content 'Films (table)'

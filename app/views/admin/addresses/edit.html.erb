@@ -1,16 +1,16 @@
 <header>
-  <h1>Edit Postcode</h1>
+  <h1>Edit Address</h1>
 </header>
 
-<%= render 'form', country: @postcode %>
+<%= render 'form', country: @address %>
 
-<% if @postcode.errors.any? %>
+<% if @address.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@postcode.errors.count, 'error') %>
+    <h2><%= pluralize(@address.errors.count, 'error') %>
       prohibited this film from being created: </h2>
 
     <ul>
-      <% @postcode.errors.full_messages.each do |msg| %>
+      <% @address.errors.each do |attr, msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

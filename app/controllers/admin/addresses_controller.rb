@@ -22,6 +22,27 @@ class Admin::AddressesController < Admin::ApplicationController
     end
   end
 
+  def edit
+    @address = Address.find(params[:id])
+  end
+
+  def update
+    if @address.update(address_params)
+      flash[:notice] = 'Address has been updated.'
+      redirect_to admin_addresses_path
+    else
+      flash.now[:alert] = 'Address has not been updated.'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @address.destroy
+    flash[:alert] = 'Address has been deleted.'
+
+    redirect_to admin_addresses_path
+  end
+
   private
 
   def set_address

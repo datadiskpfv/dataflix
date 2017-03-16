@@ -51,8 +51,13 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 ## used for charts
 gem 'chartkick'
 
+## authenication and authorization
+gem 'devise', '~> 3.4.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+## had to specify platform as using windows, because of bcrypt_ext error message
+gem 'bcrypt', '3.1.11', :platform => :ruby
 
 # Use Unicorn as the app server
 # gem 'unicorn'

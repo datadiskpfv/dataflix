@@ -10,7 +10,7 @@
       prohibited this film from being created: </h2>
 
     <ul>
-      <% @address.errors.full_messages.each do |msg| %>
+      <% @address.errors.each do |attr,msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
