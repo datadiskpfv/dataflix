@@ -11,4 +11,16 @@ class Address < ActiveRecord::Base
   validates :county_id, presence: true
   validates :country_id, presence: true
 
+  def full_address
+    return "#{house_name}
+            #{house_number}
+            #{address1}
+            #{address2}
+            #{city}
+            #{county}
+            #{country}
+            #{postcode}
+           "
+  end
+
 end

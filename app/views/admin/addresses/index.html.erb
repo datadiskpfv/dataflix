@@ -9,17 +9,7 @@
   <table>
     <% @addresses.each do |address| %>
       <tr>
-        <td>
-          <span class="address">
-            <%= address.house_number
-                address.address1
-                address.address2
-                address.city
-                address.postcode
-                address.county address.country
-            %>
-          </span>
-        </td>
+        <td><span class="address"><%= address.full_address %></span></td>
 
         <td><%= link_to 'Edit Postcode', [:edit, :admin, address], class: 'edit', id: "edit_#{address.postcode}" %></td>
         <td>&nbsp</td>
