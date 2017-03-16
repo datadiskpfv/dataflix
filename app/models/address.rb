@@ -5,7 +5,6 @@ class Address < ActiveRecord::Base
 
   validates :address1, presence: true
   validates :address2, presence: true
-  validates :town, presence: true
   validates :city, presence: true
   validates :postcode_id, presence: true
   validates :county_id, presence: true

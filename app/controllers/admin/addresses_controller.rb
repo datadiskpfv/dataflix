@@ -33,6 +33,6 @@ class Admin::AddressesController < Admin::ApplicationController
 
   def address_params
     params.require(:address).permit(:house_name, :house_number, :address1, :address2,
-                                    :town, :city, :postcode_id, :county_id, :country_id)
+                                    :city, :postcode_id, :county_id, :country_id)
   end
 end

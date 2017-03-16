@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316082659) do
+ActiveRecord::Schema.define(version: 20170316094141) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
     t.string   "house_number"
     t.string   "address1"
     t.string   "address2"
-    t.string   "town"
     t.string   "city"
     t.integer  "postcode_id"
     t.integer  "county_id"
