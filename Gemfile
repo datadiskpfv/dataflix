@@ -59,6 +59,9 @@ gem 'devise', '~> 3.4.1'
 ## had to specify platform as using windows, because of bcrypt_ext error message
 gem 'bcrypt', '3.1.11', :platform => :ruby
 
+## used for import excel or csv files
+gem 'roo'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

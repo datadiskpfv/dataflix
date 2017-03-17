@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get :search_table
       post :search_table
       get :genre_chart
+      get :import
+      post :imports
     end
   end
 

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Test films table view' do
 
   ## added trait (imgX) to be able to switch images
-  let(:film1) { FactoryGirl.create(:film, :img1, title: 'Black Mass', description: 'A good film', genre1_id: '3', image1: 'black_mass.jpg') }
-  let(:film2) { FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film', genre1_id: '1') }
+  let!(:film1) { FactoryGirl.create(:film, :img1, title: 'Black Mass', description: 'A good film', genre1_id: '6', image1: 'black_mass.jpg') }
+  let!(:film2) { FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film', genre1_id: '1') }
 
   before do
     visit films_path

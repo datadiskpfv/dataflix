@@ -3,7 +3,7 @@ FactoryGirl.define do
     title 'Alien'
     image1 'alien.jpg'
     description 'A good film'
-    genre1_id '3'
+    genre1_id '6'
     genre2_id '1'
     rating_id '1'
     release_year '1979'

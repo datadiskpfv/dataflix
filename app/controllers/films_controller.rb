@@ -73,6 +73,15 @@ class FilmsController < ApplicationController
     redirect_to @film
   end
 
+  def import
+    puts "in import"
+  end
+
+  def imports
+    Film.import(params[:file])
+    #redirect_to root_url, notice: 'Products imported.'
+  end
+
   private
 
   def set_film
