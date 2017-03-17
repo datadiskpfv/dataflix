@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete genres' do
 
+  let!(:genre) { FactoryGirl.create(:genre, genre: 'Dataflix_ScFi') }
+
   scenario 'with valid credentials' do
-
-    FactoryGirl.create(:genre, genre: 'Dataflix_ScFi')
-
-    visit '/genres'
+    visit genres_path
     click_link 'delete_Dataflix_ScFi'
 
     expect(page).to have_content 'Horror'

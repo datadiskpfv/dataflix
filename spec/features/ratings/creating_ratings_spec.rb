@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can create new ratings' do
 
   before do
-    visit '/admin'
+    visit admin_root_path
     click_link 'Create Rating'
   end
 
@@ -13,7 +13,7 @@ RSpec.feature 'Users can create new ratings' do
 
     expect(page).to have_content 'Rating has been created.'
 
-    visit '/ratings'
+    visit ratings_path
     click_link 'delete_20'
   end
 

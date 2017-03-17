@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can view ratings' do
 
   scenario 'with the rating details' do
-    visit '/ratings'
+    visit ratings_path
 
     expect(page).to have_selector('#edit_18')
     expect(page).to have_selector('#delete_18')

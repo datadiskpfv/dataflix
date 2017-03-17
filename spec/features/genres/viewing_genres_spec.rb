@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can view genres' do
 
   scenario 'with the genre details' do
-    visit '/genres'
+    visit genres_path
 
     expect(page).to have_selector('#edit_Horror')
     expect(page).to have_selector('#delete_Horror')

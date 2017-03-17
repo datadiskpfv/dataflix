@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete ratings' do
 
+  let!(:rating) { FactoryGirl.create(:rating, rating: '20') }
+
   scenario 'with valid credentials' do
-
-    FactoryGirl.create(:rating, rating: '20')
-
-    visit '/ratings'
+    visit ratings_path
     click_link 'delete_20'
 
     expect(page).to have_content '18'

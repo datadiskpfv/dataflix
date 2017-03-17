@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature ' Users can edit ratings' do
 
   scenario 'with valid credentials' do
-    visit '/ratings'
+    visit ratings_path
     click_link "edit_18"
 
     fill_in 'Rating', with: '16'
@@ -12,7 +12,7 @@ RSpec.feature ' Users can edit ratings' do
     expect(page).to have_content 'Rating has been updated.'
     expect(page).to have_content '16'
 
-    visit '/ratings'
+    visit ratings_path
     click_link "edit_16"
     fill_in 'Rating', with: '18'
     click_button 'Update Rating'

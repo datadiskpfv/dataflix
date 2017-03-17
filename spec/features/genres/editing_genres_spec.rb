@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit genres' do
 
-  scenario 'with valid credentials' do
-    ## removed as I have seeded the data
-    FactoryGirl.create(:genre, genre: 'Dataflix')
+  let!(:genre) { FactoryGirl.create(:genre, genre: 'Dataflix') }
 
-    visit '/genres'
+  scenario 'with valid credentials' do
+    visit genres_path
     click_link 'edit_Dataflix'
 
     fill_in 'Genre', with: 'Dataflix_ScFi'
@@ -15,7 +14,7 @@ RSpec.feature ' Users can edit genres' do
     expect(page).to have_content 'Genre has been updated.'
     expect(page).to have_content 'Dataflix_ScFi'
 
-    visit '/genres'
+    visit genres_path
     click_link 'delete_Dataflix_ScFi'
   end
 end
