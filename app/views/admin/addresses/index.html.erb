@@ -11,9 +11,10 @@
       <tr>
         <td><span class="address"><%= address.full_address %></span></td>
 
-        <td><%= link_to 'Edit Address', [:edit, :admin, address], class: 'edit', id: "edit_#{address.postcode}" %></td>
+        <td><%= link_to 'Edit Address', [:edit, :admin, address], class: 'edit',
+                        id: "edit_#{address.get_link_id_address}" %></td>
         <td>&nbsp</td>
-        <td><%= link_to 'Delete Address', [:admin, address], method: :delete, id: "delete_#{address.postcode}",
+        <td><%= link_to 'Delete Address', [:admin, address], method: :delete, id: "delete_#{address.get_link_id_address}",
                   data: { confirm: 'Are you sure you want to delete this address?' },
                   class: 'delete' %></td>
       </tr>

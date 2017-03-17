@@ -10,7 +10,7 @@
     <!-- normally I would use country for each one but path is wrong had to use countries -->
     <% @counties.each do |county| %>
       <tr>
-        <td><span class="county"><%= county.county %></span></td>
+        <td><span class="county"><%= county.county %>, <%= county.country %></span></td>
         <td><%= link_to 'Edit county', [:edit, :admin, county], class: 'edit', id: "edit_#{county.county}" %></td>
         <td>&nbsp</td>
         <td><%= link_to 'Delete county', [:admin, county], method: :delete, id: "delete_#{county.county}",

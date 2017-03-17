@@ -18,14 +18,21 @@ class Address < ActiveRecord::Base
 
   def full_address
     return "#{house_name}
-            #{house_number}
-            #{address1}
-            #{address2}
-            #{city}
-            #{county}
-            #{country}
+            #{house_number},
+            #{address1},
+            #{address2},
+            #{city},
+            #{county},
+            #{country},
             #{postcode}
            "
   end
 
+  def get_link_id_address
+    if house_name.blank?
+      return ("#{house_number}_#{postcode}").parameterize.underscore
+    else
+      return ("#{house_name}_#{postcode}").parameterize.underscore
+    end
+  end
 end

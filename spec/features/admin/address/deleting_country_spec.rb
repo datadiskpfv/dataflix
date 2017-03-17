@@ -11,9 +11,10 @@ RSpec.feature ' Users can delete countries' do
   end
 
   scenario 'with valid credentials' do
-    find('#delete_England').click
+    find('#delete_england').click
 
     expect(page).to have_content 'Country has been deleted.'
+    expect(page).not_to have_content 'England'
     expect(page).to have_content 'United States of America'
   end
 end

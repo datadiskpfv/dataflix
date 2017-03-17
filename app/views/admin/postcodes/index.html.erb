@@ -11,9 +11,9 @@
     <% @postcodes.each do |postcode| %>
       <tr>
         <td><span class="postcode"><%= postcode.postcode %></span></td>
-        <td><%= link_to 'Edit Postcode', [:edit, :admin, postcode], class: 'edit', id: "edit_#{postcode.postcode}" %></td>
+        <td><%= link_to 'Edit Postcode', [:edit, :admin, postcode], class: 'edit', id: "edit_#{(postcode.postcode).parameterize.underscore}" %></td>
         <td>&nbsp</td>
-        <td><%= link_to 'Delete Postcode', [:admin, postcode], method: :delete, id: "delete_#{postcode.postcode}",
+        <td><%= link_to 'Delete Postcode', [:admin, postcode], method: :delete, id: "delete_#{(postcode.postcode).parameterize.underscore}",
                   data: { confirm: 'Are you sure you want to delete this postcode?' },
                   class: 'delete' %></td>
       </tr>

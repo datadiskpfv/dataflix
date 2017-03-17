@@ -11,9 +11,9 @@
     <% @countries.each do |countries| %>
       <tr>
         <td><span class="country"><%= countries.country %></span></td>
-        <td><%= link_to 'Edit country', [:edit, :admin, countries], class: 'edit', id: "edit_#{countries.country}" %></td>
+        <td><%= link_to 'Edit country', [:edit, :admin, countries], class: 'edit', id: "edit_#{(countries.country).parameterize.underscore}" %></td>
         <td>&nbsp</td>
-        <td><%= link_to 'Delete country', [:admin, countries], method: :delete, id: "delete_#{countries.country}",
+        <td><%= link_to 'Delete country', [:admin, countries], method: :delete, id: "delete_#{(countries.country).parameterize.underscore}",
                   data: { confirm: 'Are you sure you want to delete this country?' },
                   class: 'delete' %></td>
       </tr>

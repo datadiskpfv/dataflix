@@ -1,12 +1,12 @@
 <%= simple_form_for [:admin, @address] do |f| %>
 
-   <%= f.input :house_name %>
-   <%= f.input :house_number %>
+   <%= f.input :house_name, label: 'House Name' %>
+   <%= f.input :house_number, label: 'House Number' %>
    <%= f.input :address1 %>
    <%= f.input :address2 %>
    <%= f.input :city %>
 
-   <%= f.association :postcode, label: 'postcode', prompt: "Choose a Postcode" %>
+   <%= f.association :postcode, label: 'Postcode', prompt: "Choose a Postcode" %>
    <%= f.association :county, label: 'County', prompt: "Choose a County" %>
    <%= f.association :country, label: 'Country', prompt: "Choose a Country" %>
 
