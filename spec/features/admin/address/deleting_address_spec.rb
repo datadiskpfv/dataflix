@@ -6,10 +6,10 @@ RSpec.feature ' Users can delete addresses' do
   let(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
   let(:postcode1) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
   let(:postcode2) { FactoryGirl.create(:postcode, postcode: 'MK10 6DW') }
+  let!(:address1) { FactoryGirl.create(:address, county: county, country: country, postcode: postcode1) }
+  let!(:address2) { FactoryGirl.create(:address, house_name: 'The Cottage', county: county, country: country, postcode: postcode2) }
 
   before do
-    FactoryGirl.create(:address, county: county, country: country, postcode: postcode1)
-    FactoryGirl.create(:address, house_name: 'The Cottage', county: county, country: country, postcode: postcode2)
     visit admin_addresses_path
   end
 

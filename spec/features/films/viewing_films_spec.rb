@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Users can view films' do
 
-  let!(:film1) { FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film') }
+  let(:film1) { FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film') }
 
   before do
     visit film_path(film1)
