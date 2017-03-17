@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete countries' do
 
-  before do
-    usa = FactoryGirl.create(:country, country: 'United States of America')
-    england = FactoryGirl.create(:country, country: 'England')
+  let!(:country1) { FactoryGirl.create(:country, country: 'United States of America') }
+  let!(:country2) { FactoryGirl.create(:country, country: 'England')}
 
-    visit '/admin'
+  before do
+    visit admin_root_path
     click_link 'Country Area'
   end
 

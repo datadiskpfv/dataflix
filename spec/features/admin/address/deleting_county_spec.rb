@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete counties' do
 
-  before do
-    country = FactoryGirl.create(:country, country: 'England')
-    county = FactoryGirl.create(:county, county: 'Buckinghamshire', country: country)
+  let!(:country) { FactoryGirl.create(:country, country: 'England') }
+  let!(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
 
-    visit '/admin'
+  before do
+    visit admin_root_path
     click_link 'County Area'
   end
 

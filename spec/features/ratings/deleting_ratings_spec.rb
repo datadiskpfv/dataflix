@@ -4,7 +4,7 @@ RSpec.feature ' Users can delete ratings' do
 
   scenario 'with valid credentials' do
 
-    rating1 = FactoryGirl.create(:rating, rating: '20')
+    FactoryGirl.create(:rating, rating: '20')
 
     visit '/ratings'
     click_link 'delete_20'

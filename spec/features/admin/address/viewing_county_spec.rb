@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature 'Users can view counties' do
 
-  before do
-    country = FactoryGirl.create(:country, country: 'England')
-    county = FactoryGirl.create(:county, county: 'Buckinghamshire', country: country)
+  let!(:country) { FactoryGirl.create(:country, country: 'England') }
+  let!(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
 
-    visit '/admin/counties'
+  before do
+    visit admin_counties_path
   end
 
   scenario 'with the film details' do

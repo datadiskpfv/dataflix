@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit countries' do
 
-  before do
-    usa = FactoryGirl.create(:country, country: 'United States of America')
+  let!(:country) { FactoryGirl.create(:country, country: 'United States of America') }
 
-    visit '/admin/countries'
+  before do
+    visit admin_countries_path
   end
 
   scenario 'with valid credentials' do

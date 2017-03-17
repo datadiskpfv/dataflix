@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit postcode' do
 
-  before do
-    postcode1 = FactoryGirl.create(:postcode, postcode: 'MK10 6DW')
-    postcode2 = FactoryGirl.create(:postcode, postcode: 'MK10 7DW')
+  let!(:postcode1) { FactoryGirl.create(:postcode, postcode: 'MK10 6DW') }
+  let!(:postcode2) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
 
-    visit '/admin/postcodes'
+  before do
+    visit admin_postcodes_path
   end
 
   scenario 'with valid credentials' do

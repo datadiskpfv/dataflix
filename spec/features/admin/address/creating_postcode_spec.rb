@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can create new postcode' do
 
   before do
-    visit '/admin'
+    visit admin_root_path
     click_link 'Create Postcode'
   end
 

@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.feature 'Users can create new address' do
 
-  before do
-    country = FactoryGirl.create(:country, country: 'England')
-    county = FactoryGirl.create(:county, county: 'Buckinghamshire', country: country)
-    postcode = FactoryGirl.create(:postcode, postcode: 'MK10 7DW')
+  let(:country) { FactoryGirl.create(:country, country: 'England') }
+  let!(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
+  let!(:postcode) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
 
-    visit '/admin'
+  before do
+    visit admin_root_path
     click_link 'Create Address'
   end
 

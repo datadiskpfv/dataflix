@@ -4,7 +4,7 @@ RSpec.feature ' Users can edit genres' do
 
   scenario 'with valid credentials' do
     ## removed as I have seeded the data
-    genre = FactoryGirl.create(:genre, genre: 'Dataflix')
+    FactoryGirl.create(:genre, genre: 'Dataflix')
 
     visit '/genres'
     click_link 'edit_Dataflix'

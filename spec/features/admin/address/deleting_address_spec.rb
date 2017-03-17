@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete addresses' do
 
-  before do
-    country = FactoryGirl.create(:country, country: 'England')
-    county = FactoryGirl.create(:county, county: 'Buckinghamshire', country: country)
-    postcode1 = FactoryGirl.create(:postcode, postcode: 'MK10 7DW')
-    postcode2 = FactoryGirl.create(:postcode, postcode: 'MK10 6DW')
+  let(:country) { FactoryGirl.create(:country, country: 'England') }
+  let(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
+  let(:postcode1) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
+  let(:postcode2) { FactoryGirl.create(:postcode, postcode: 'MK10 6DW') }
 
-    address1 = FactoryGirl.create(:address, county: county, country: country, postcode: postcode1)
-    address2 = FactoryGirl.create(:address, house_name: 'The Cottage', county: county, country: country, postcode: postcode2)
-    visit '/admin/addresses'
+  before do
+    FactoryGirl.create(:address, county: county, country: country, postcode: postcode1)
+    FactoryGirl.create(:address, house_name: 'The Cottage', county: county, country: country, postcode: postcode2)
+    visit admin_addresses_path
   end
 
   scenario 'with valid credentials' do

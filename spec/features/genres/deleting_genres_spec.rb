@@ -4,7 +4,7 @@ RSpec.feature ' Users can delete genres' do
 
   scenario 'with valid credentials' do
 
-    genre1 = FactoryGirl.create(:genre, genre: 'Dataflix_ScFi')
+    FactoryGirl.create(:genre, genre: 'Dataflix_ScFi')
 
     visit '/genres'
     click_link 'delete_Dataflix_ScFi'
