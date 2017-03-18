@@ -15,6 +15,7 @@ unless Genre.exists?
   Genre.create(genre: 'ScFi', id: 2)
   Genre.create(genre: 'Romantic', id: 5)
   Genre.create(genre: 'War', id: 9)
+  Genre.create(genre: 'Kids', id: 4)
 end
 
 unless Rating.exists?

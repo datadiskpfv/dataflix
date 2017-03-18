@@ -1,5 +1,6 @@
 <h2>Import Films</h2>
+<p>You can use either a CVS or a Excel file</p>
 <%= form_tag imports_films_path, multipart: true do %>
-    <%= file_field_tag :file %>
+    <%= file_field_tag :file %><br>
     <%= submit_tag "Import" %>
 <% end %>
