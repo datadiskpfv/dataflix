@@ -25,3 +25,7 @@ unless Rating.exists?
   Rating.create(rating: 'PG', id: 7)
   Rating.create(rating: 'U', id: 6)
 end
+
+unless User.exists?(email: "admin@datadisk.co.uk")
+  User.create!(email: "admin@datadisk.co.uk", password: "password", admin: true)
+end
