@@ -29,6 +29,11 @@ class Film < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
+      puts "Film row: #{row['image1']}"
+      row['genre1_id'] = Genre.find_by_genre("#{row['genre1_id']}").id
+      row['genre2_id'] = Genre.find_by_genre("#{row['genre2_id']}").id
+      row['rating_id'] = Rating.find_by_rating("#{row['rating_id']}").id
+      row['image1'] = File.open("#{Rails.root}/public/uploads/film_images/#{row['image1']}")
       film = find_by(id: row["id"]) || new
       film.attributes = row.to_hash
       film.save!

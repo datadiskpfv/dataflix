@@ -1,5 +1,5 @@
 <h2>Import Films</h2>
-<%= form_tag import_films_path, multipart: true do %>
+<%= form_tag imports_films_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import" %>
 <% end %>
