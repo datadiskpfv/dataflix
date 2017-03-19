@@ -11,9 +11,18 @@ class Admin::AddressesController < Admin::ApplicationController
   end
 
   def create
+    # get the user as we will need to add the address
+    @user = User.find(params[:address][:user_id])
+
+    ## remove the user_id from address as it does not exist
+    params[:address].delete :user_id
+
     @address = Address.new(address_params)
 
     if @address.save
+      # now we can add the address to the user and save it
+      @user.address_id = @address.id
+      @user.save
       flash[:notice] = 'Address has been created.'
       redirect_to admin_addresses_path
     else
@@ -54,6 +63,6 @@ class Admin::AddressesController < Admin::ApplicationController
 
   def address_params
     params.require(:address).permit(:house_name, :house_number, :address1, :address2,
-                                    :city, :postcode_id, :county_id, :country_id)
+                                    :city, :postcode_id, :county_id, :country_id, :user_id)
   end
 end

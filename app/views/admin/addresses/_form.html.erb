@@ -10,5 +10,7 @@
    <%= f.association :county, label: 'County', prompt: "Choose a County" %>
    <%= f.association :country, label: 'Country', prompt: "Choose a Country" %>
 
+   <%= f.hidden_field :user_id, value: current_user.id  %>
+
    <%= f.button :submit, { class: "btn-primary" } %>
 <% end %>
