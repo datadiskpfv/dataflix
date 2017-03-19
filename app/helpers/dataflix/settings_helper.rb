@@ -1,0 +1,2 @@
+module Dataflix::SettingsHelper
+end

@@ -13,6 +13,14 @@ Rails.application.routes.draw do
     resources :addresses
   end
 
+  namespace :dataflix do
+    resources :settings, only: [] do
+      collection do
+        get :address
+      end
+    end
+  end
+
   resources :films do
     collection do
       get :table

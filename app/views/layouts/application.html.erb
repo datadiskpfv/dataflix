@@ -36,9 +36,11 @@
             <%= link_to "Sign in", new_user_session_path %>
           </li>
         <% end %>
-        <li class="<%= "active" if current_page?("/admin") %>">
-          <%= link_to 'Administration', admin_root_path %>
-        </li>
+        <% admins_only do %>
+          <li class="<%= "active" if current_page?("/admin") %>">
+            <%= link_to 'Administration', admin_root_path %>
+          </li>
+        <% end %>
         <li>
           <div class="search-bar" style="width: 400px;">
             <%= form_tag search_table_films_path, :method => 'search_table', class: 'input-group'  do %>
@@ -60,6 +62,16 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
           </ul>
+          <div class="settings">
+            <button class="btn btn-default dropdown-toggle icon-cog" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Rental list</a></li>
+              <li><%= link_to 'Address', address_dataflix_settings_path %>
+              <li><a href="#">Defaults</a></li>
+            </ul>
+          </div>
         </div>
       <% end %>
     </div>
