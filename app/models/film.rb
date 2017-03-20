@@ -4,6 +4,9 @@ class Film < ActiveRecord::Base
   belongs_to :genre2, class_name: 'Genre'
   belongs_to :rating
 
+  has_many :rental_lists
+  has_many :users, through: :rental_lists
+
   mount_uploader :image1, ImageUploader
 
   validates :title, presence: true

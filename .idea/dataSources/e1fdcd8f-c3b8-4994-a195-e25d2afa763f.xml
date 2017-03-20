@@ -13,363 +13,398 @@
     <table id="7" parent="2" name="genres"/>
     <table id="8" parent="2" name="postcodes"/>
     <table id="9" parent="2" name="ratings"/>
-    <table id="10" parent="2" name="schema_migrations"/>
-    <table id="11" parent="2" name="sqlite_sequence"/>
-    <table id="12" parent="2" name="users"/>
-    <column id="13" parent="3" name="id">
+    <table id="10" parent="2" name="rental_lists"/>
+    <table id="11" parent="2" name="schema_migrations"/>
+    <table id="12" parent="2" name="sqlite_sequence"/>
+    <table id="13" parent="2" name="users"/>
+    <column id="14" parent="3" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="3" name="house_name">
+    <column id="15" parent="3" name="house_name">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="15" parent="3" name="house_number">
+    <column id="16" parent="3" name="house_number">
       <Position>2</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="16" parent="3" name="address1">
+    <column id="17" parent="3" name="address1">
       <Position>3</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="17" parent="3" name="address2">
+    <column id="18" parent="3" name="address2">
       <Position>4</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="18" parent="3" name="city">
+    <column id="19" parent="3" name="city">
       <Position>5</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="19" parent="3" name="postcode_id">
+    <column id="20" parent="3" name="postcode_id">
       <Position>6</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="20" parent="3" name="county_id">
+    <column id="21" parent="3" name="county_id">
       <Position>7</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="21" parent="3" name="country_id">
+    <column id="22" parent="3" name="country_id">
       <Position>8</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="22" parent="3" name="created_at">
+    <column id="23" parent="3" name="created_at">
       <Position>9</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="3" name="updated_at">
+    <column id="24" parent="3" name="updated_at">
       <Position>10</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="24" parent="3" name="index_addresses_on_postcode_id">
+    <index id="25" parent="3" name="index_addresses_on_postcode_id">
       <ColNames>postcode_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="25" parent="3" name="index_addresses_on_county_id">
+    <index id="26" parent="3" name="index_addresses_on_county_id">
       <ColNames>county_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="26" parent="3" name="index_addresses_on_country_id">
+    <index id="27" parent="3" name="index_addresses_on_country_id">
       <ColNames>country_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="27" parent="3">
+    <key id="28" parent="3">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="28" parent="4" name="id">
+    <column id="29" parent="4" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="4" name="county">
+    <column id="30" parent="4" name="county">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="30" parent="4" name="created_at">
+    <column id="31" parent="4" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="4" name="updated_at">
+    <column id="32" parent="4" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="4" name="country_id">
+    <column id="33" parent="4" name="country_id">
       <Position>4</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <index id="33" parent="4" name="index_counties_on_county">
+    <index id="34" parent="4" name="index_counties_on_county">
       <ColNames>county</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="34" parent="4" name="index_counties_on_country_id">
+    <index id="35" parent="4" name="index_counties_on_country_id">
       <ColNames>country_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="35" parent="4">
+    <key id="36" parent="4">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="36" parent="5" name="id">
+    <column id="37" parent="5" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="37" parent="5" name="country">
+    <column id="38" parent="5" name="country">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="38" parent="5" name="created_at">
+    <column id="39" parent="5" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="5" name="updated_at">
+    <column id="40" parent="5" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="40" parent="5" name="index_countries_on_country">
+    <index id="41" parent="5" name="index_countries_on_country">
       <ColNames>country</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="5">
+    <key id="42" parent="5">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="42" parent="6" name="id">
+    <column id="43" parent="6" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="6" name="title">
+    <column id="44" parent="6" name="title">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="44" parent="6" name="description">
+    <column id="45" parent="6" name="description">
       <Position>2</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="45" parent="6" name="created_at">
+    <column id="46" parent="6" name="created_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="46" parent="6" name="updated_at">
+    <column id="47" parent="6" name="updated_at">
       <Position>4</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="47" parent="6" name="genre1_id">
+    <column id="48" parent="6" name="genre1_id">
       <Position>5</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="48" parent="6" name="genre2_id">
+    <column id="49" parent="6" name="genre2_id">
       <Position>6</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="49" parent="6" name="rating_id">
+    <column id="50" parent="6" name="rating_id">
       <Position>7</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="50" parent="6" name="image1">
+    <column id="51" parent="6" name="image1">
       <Position>8</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="51" parent="6" name="release_year">
+    <column id="52" parent="6" name="release_year">
       <Position>9</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="52" parent="6" name="blu_ray_stock">
+    <column id="53" parent="6" name="blu_ray_stock">
       <Position>10</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="53" parent="6" name="dvd_stock">
+    <column id="54" parent="6" name="dvd_stock">
       <Position>11</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="54" parent="6" name="active">
+    <column id="55" parent="6" name="active">
       <Position>12</Position>
       <DataType>BOOLEAN(0,-1)|4</DataType>
       <DefaultExpression>&apos;f&apos;</DefaultExpression>
     </column>
-    <index id="55" parent="6" name="index_films_on_genre1_id">
+    <index id="56" parent="6" name="index_films_on_genre1_id">
       <ColNames>genre1_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="56" parent="6" name="index_films_on_genre2_id">
+    <index id="57" parent="6" name="index_films_on_genre2_id">
       <ColNames>genre2_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="57" parent="6" name="index_films_on_rating_id">
+    <index id="58" parent="6" name="index_films_on_rating_id">
       <ColNames>rating_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="58" parent="6">
+    <key id="59" parent="6">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="59" parent="7" name="id">
+    <column id="60" parent="7" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="60" parent="7" name="genre">
+    <column id="61" parent="7" name="genre">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="61" parent="7" name="created_at">
+    <column id="62" parent="7" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="62" parent="7" name="updated_at">
+    <column id="63" parent="7" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="63" parent="7">
+    <key id="64" parent="7">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="64" parent="8" name="id">
+    <column id="65" parent="8" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="65" parent="8" name="postcode">
+    <column id="66" parent="8" name="postcode">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="66" parent="8" name="created_at">
+    <column id="67" parent="8" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="8" name="updated_at">
+    <column id="68" parent="8" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="68" parent="8">
+    <key id="69" parent="8">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="69" parent="9" name="id">
+    <column id="70" parent="9" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="70" parent="9" name="rating">
+    <column id="71" parent="9" name="rating">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="71" parent="9" name="created_at">
+    <column id="72" parent="9" name="created_at">
       <Position>2</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="72" parent="9" name="updated_at">
+    <column id="73" parent="9" name="updated_at">
       <Position>3</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="73" parent="9">
+    <key id="74" parent="9">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="74" parent="10" name="version">
+    <column id="75" parent="10" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="10" name="user_id_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="77" parent="10" name="film_id_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="78" parent="10" name="created_at">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="10" name="updated_at">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="80" parent="10" name="index_rental_lists_on_user_id_id">
+      <ColNames>user_id_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="81" parent="10" name="index_rental_lists_on_film_id_id">
+      <ColNames>film_id_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="82" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="83" parent="11" name="version">
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="75" parent="10" name="unique_schema_migrations">
+    <index id="84" parent="11" name="unique_schema_migrations">
       <ColNames>version</ColNames>
       <Unique>1</Unique>
     </index>
-    <column id="76" parent="11" name="name">
+    <column id="85" parent="12" name="name">
       <DataType>(0,-1)|12</DataType>
     </column>
-    <column id="77" parent="11" name="seq">
+    <column id="86" parent="12" name="seq">
       <Position>1</Position>
       <DataType>(0,-1)|12</DataType>
     </column>
-    <column id="78" parent="12" name="id">
+    <column id="87" parent="13" name="id">
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="12" name="email">
+    <column id="88" parent="13" name="email">
       <Position>1</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="80" parent="12" name="encrypted_password">
+    <column id="89" parent="13" name="encrypted_password">
       <Position>2</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="81" parent="12" name="reset_password_token">
+    <column id="90" parent="13" name="reset_password_token">
       <Position>3</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="82" parent="12" name="reset_password_sent_at">
+    <column id="91" parent="13" name="reset_password_sent_at">
       <Position>4</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="83" parent="12" name="remember_created_at">
+    <column id="92" parent="13" name="remember_created_at">
       <Position>5</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="84" parent="12" name="sign_in_count">
+    <column id="93" parent="13" name="sign_in_count">
       <Position>6</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="85" parent="12" name="current_sign_in_at">
+    <column id="94" parent="13" name="current_sign_in_at">
       <Position>7</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="86" parent="12" name="last_sign_in_at">
+    <column id="95" parent="13" name="last_sign_in_at">
       <Position>8</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="87" parent="12" name="current_sign_in_ip">
+    <column id="96" parent="13" name="current_sign_in_ip">
       <Position>9</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="88" parent="12" name="last_sign_in_ip">
+    <column id="97" parent="13" name="last_sign_in_ip">
       <Position>10</Position>
       <DataType>VARCHAR(0,-1)|12</DataType>
     </column>
-    <column id="89" parent="12" name="created_at">
+    <column id="98" parent="13" name="created_at">
       <Position>11</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="90" parent="12" name="updated_at">
+    <column id="99" parent="13" name="updated_at">
       <Position>12</Position>
       <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="91" parent="12" name="admin">
+    <column id="100" parent="13" name="admin">
       <Position>13</Position>
       <DataType>BOOLEAN(0,-1)|4</DataType>
       <DefaultExpression>&apos;f&apos;</DefaultExpression>
     </column>
-    <column id="92" parent="12" name="address_id">
+    <column id="101" parent="13" name="address_id">
       <Position>14</Position>
       <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <index id="93" parent="12" name="index_users_on_email">
+    <index id="102" parent="13" name="index_users_on_email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="94" parent="12" name="index_users_on_reset_password_token">
+    <index id="103" parent="13" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="95" parent="12" name="index_users_on_address_id">
+    <index id="104" parent="13" name="index_users_on_address_id">
       <ColNames>address_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="96" parent="12">
+    <key id="105" parent="13">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
