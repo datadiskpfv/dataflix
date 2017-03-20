@@ -62,7 +62,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
           </ul>
-          <div class="settings">
+          <ul class="nav navbar-nav settings">
             <button class="btn btn-default dropdown-toggle icon-cog" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <span class="glyphicon glyphicon-cog"></span>
             </button>
@@ -71,7 +71,7 @@
               <li><%= link_to 'Address', address_dataflix_settings_path %>
               <li><a href="#">Defaults</a></li>
             </ul>
-          </div>
+          </ul>
         </div>
       <% end %>
     </div>
