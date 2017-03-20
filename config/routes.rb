@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
 
   root "films#index"
@@ -11,6 +12,13 @@ Rails.application.routes.draw do
     resources :counties
     resources :postcodes
     resources :addresses
+
+    resources :users, only: [] do
+      collection do
+        get :search_edit
+        post :search_table
+      end
+    end
   end
 
   namespace :dataflix do
