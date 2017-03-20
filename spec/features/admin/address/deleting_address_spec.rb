@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete addresses' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
   let(:country) { FactoryGirl.create(:country, country: 'England') }
   let(:county) { FactoryGirl.create(:county, county: 'Buckinghamshire', country: country) }
   let(:postcode1) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
@@ -10,6 +11,7 @@ RSpec.feature ' Users can delete addresses' do
   let!(:address2) { FactoryGirl.create(:address, house_name: 'The Cottage', county: county, country: country, postcode: postcode2) }
 
   before do
+    login_as(admin_user)
     visit admin_addresses_path
   end
 

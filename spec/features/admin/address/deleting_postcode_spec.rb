@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete postcodes' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
   let!(:postcode1) { FactoryGirl.create(:postcode, postcode: 'MK10 6DW') }
   let!(:postcode2) { FactoryGirl.create(:postcode, postcode: 'MK10 7DW') }
 
   before do
+    login_as(admin_user)
     visit admin_postcodes_path
   end
 

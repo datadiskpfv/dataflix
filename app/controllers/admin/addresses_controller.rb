@@ -36,7 +36,15 @@ class Admin::AddressesController < Admin::ApplicationController
   end
 
   def update
+    # get the user as we will need to add the address
+    @user = User.find(params[:address][:user_id])
+
+    ## remove the user_id from address as it does not exist
+    params[:address].delete :user_id
+
     if @address.update(address_params)
+      @user.address_id = @address.id
+      @user.save
       flash[:notice] = 'Address has been updated.'
       redirect_to admin_addresses_path
     else

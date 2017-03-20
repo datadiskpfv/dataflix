@@ -25,27 +25,36 @@
         <th>Release Year: </th>
         <td><%= @film.release_year %></td>
       </tr>
-      <tr id="blu_ray_stock">
-        <th>Blu-Ray Stock: </th>
-        <td><%= @film.blu_ray_stock %></td>
-      </tr>
-      <tr id="dvd_stock">
-        <th>DVD Stock: </th>
-        <td><%= @film.dvd_stock %></td>
-      </tr>
-      <tr id="film_active">
-        <th>Film Active: </th>
-        <td><%= @film.active %></td>
-      </tr>
+      <% admins_only do %>
+        <tr id="blu_ray_stock">
+          <th>Blu-Ray Stock: </th>
+          <td><%= @film.blu_ray_stock %></td>
+        </tr>
+        <tr id="dvd_stock">
+          <th>DVD Stock: </th>
+          <td><%= @film.dvd_stock %></td>
+        </tr>
+        <tr id="film_active">
+          <th>Film Active: </th>
+          <td><%= @film.active %></td>
+        </tr>
+      <% end %>
     </table>
 
     <div id="tasks">
-      <div class="actions">
-        <%= link_to 'Edit Film', edit_film_path, class: 'new' %>
-        <%= link_to 'Delete Film', @film, method: :delete,
-          data: { confirm: 'Are you sure you want to delete this film?' },
-          class: 'delete' %>
-      </div>
+      <% admins_only do %>
+        <div class="actions">
+          <%= link_to 'Edit Film', edit_film_path, class: 'new' %>
+          <%= link_to 'Delete Film', @film, method: :delete,
+            data: { confirm: 'Are you sure you want to delete this film?' },
+            class: 'delete' %>
+        </div>
+      <% end %>
+      <% if check_not_admin %>
+        <div>
+          <button type="button" class="btn btn-warning btn-xs rental-button">Add to Rental List</button>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

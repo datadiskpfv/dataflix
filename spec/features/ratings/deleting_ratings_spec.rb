@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.feature ' Users can delete ratings' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
+
+  before do
+    login_as(admin_user)
+  end
+
   let!(:rating) { FactoryGirl.create(:rating, rating: '20') }
 
   scenario 'with valid credentials' do

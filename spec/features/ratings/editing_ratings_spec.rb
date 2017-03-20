@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit ratings' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
+
+  before do
+    login_as(admin_user)
+  end
+
   scenario 'with valid credentials' do
     visit ratings_path
     click_link "edit_18"

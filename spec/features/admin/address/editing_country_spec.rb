@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit countries' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
   let!(:country) { FactoryGirl.create(:country, country: 'United States of America') }
 
   before do
+    login_as(admin_user)
     visit admin_countries_path
   end
 

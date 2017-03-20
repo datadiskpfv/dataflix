@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.feature 'Users can create new ratings' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
+
+  before do
+    login_as(admin_user)
+  end
+
   before do
     visit admin_root_path
     click_link 'Create Rating'

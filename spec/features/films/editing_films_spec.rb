@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.feature ' Users can edit films' do
 
+  let(:admin_user) { FactoryGirl.create(:user, :admin)}
   let(:film1) { FactoryGirl.create(:film, :img2, title: 'Alien', description: 'A good film', image1: 'alien.jpg') }
 
   before do
     puts "Film main image is: #{film1.image1}"
+    login_as(admin_user)
     visit film_path(film1)
   end
 
