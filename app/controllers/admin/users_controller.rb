@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def search_table
-    @search_string = params[:search]
+    @search_string = params[:search_user]
     @users = User.search(@search_string)
   end
 
@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def film_params
-    params.require(:user).permit(:search)
+    params.require(:user).permit(:search_user)
   end
 
 end

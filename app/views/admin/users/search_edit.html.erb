@@ -4,7 +4,7 @@
 
 <div class="search-bar" style="width: 400px;">
   <%= form_tag search_table_admin_users_path, :method => 'search_table', class: 'input-group'  do %>
-      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for user...' %>
+      <%= text_field_tag :search_user, params[:search_user], class: 'form-control', placeholder: 'Search for user...' %>
       <span class="input-group-btn">
                   <%= button_tag( :class => "btn") do %>
                       <i class="glyphicon glyphicon-search"></i>
