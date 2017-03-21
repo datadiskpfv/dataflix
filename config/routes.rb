@@ -18,6 +18,12 @@ Rails.application.routes.draw do
         get :search_edit
         post :search_table
       end
+      member do
+        patch :archive
+        patch :unarchive
+        patch :make_admin
+        patch :undo_admin
+      end
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320091203) do
+ActiveRecord::Schema.define(version: 20170321080718) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170320091203) do
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
     t.integer  "address_id"
+    t.datetime "archived_at"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id"

@@ -1,0 +1,8 @@
+<%= simple_form_for (@user) do |f| %>
+
+    <%= f.input :email, input_html: { maxlength: 50 } %>
+    <%= f.input :admin, :as => :text, input_html: {rows: 5, maxlength: 200} %>
+    <%= f.input :archive, label: 'Account Active' %>
+
+    <%= f.button :submit, { class: "btn-primary" } %>
+<% end %>

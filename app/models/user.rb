@@ -10,4 +10,20 @@ class User < ActiveRecord::Base
   def self.search(search)
     where("email LIKE ?", "%#{search}%")
   end
+
+  def archive
+    self.update(archived_at: Time.now)
+  end
+
+  def unarchive
+    self.update(archived_at: '')
+  end
+
+  def make_admin
+    self.update(admin: true)
+  end
+
+  def undo_admin
+    self.update(admin: false)
+  end
 end
