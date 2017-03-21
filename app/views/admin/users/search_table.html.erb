@@ -8,20 +8,23 @@
         <td><span class="user_email"><%= user.email %></span></td>
         <td>
           <%= link_to 'Edit User', root_path, class: "area" %>
+        </td>
+        <td>
           <%= link_to 'Reset Password', root_path, class: "area" %>
-
+        </td>
+        <td>
           <% if user.admin %>
-            <%= link_to 'Unadmin User', undo_admin_admin_user_path(user.id), method: :patch, class: "area" %>
+            <%= link_to 'Remove Administration', undo_admin_admin_user_path(user.id), method: :patch, class: "area" %>
           <% else %>
-              <%= link_to 'Admin User', make_admin_admin_user_path(user.id), method: :patch, class: "area" %>
+              <%= link_to 'Add Administration', make_admin_admin_user_path(user.id), method: :patch, class: "area" %>
           <% end %>
-
+        </td>
+        <td>
           <% if user.archived_at.blank? %>
                <%= link_to 'Archive User', archive_admin_user_path(user.id), method: :patch, class: "area" %>
           <% else %>
               <%= link_to 'UnArchive User', unarchive_admin_user_path(user.id), method: :patch, class: "area" %>
           <% end %>
-
         </td>
       </tr>
   <% end %>
