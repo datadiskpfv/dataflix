@@ -26,4 +26,15 @@ class User < ActiveRecord::Base
   def undo_admin
     self.update(admin: false)
   end
+
+  ## override devise method
+  def active_for_authentication?
+    super && archived_at.nil?
+  end
+
+  ## override devise method, see config -> locales -> devise.en.yml
+  ## look at user: archived: for message
+  def inactive_message
+    archived_at.nil? ? super : :archived
+  end
 end

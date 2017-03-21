@@ -1,0 +1,14 @@
+<header>
+  <h2>User <%= @user.email %> Rental List</h2>
+</header>
+
+<table class="table table-striped table-condensed">
+  <% @films.each do |film| %>
+    <tr>
+      <td><%= image_tag film.image1, size: "40x40" %></td>
+      <td><%= film.title %></td>
+      <td><%= film.film_format %></td>
+      <td><%= link_to 'Remove film from list', root_path, class: "btn btn-xs btn-info" %></td>
+    </tr>
+  <% end %>
+</table>

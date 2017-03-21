@@ -67,9 +67,9 @@
               <span class="glyphicon glyphicon-cog"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">Rental list</a></li>
+              <li><%= link_to 'Rental List', rental_list_dataflix_setting_path(current_user.id) %></li>
               <% if check_not_admin %>
-                <li><%= link_to 'Address', address_dataflix_settings_path %>
+                  <li><%= link_to 'Address', address_dataflix_settings_path %></li>
               <% end %>
               <li><a href="#">Defaults</a></li>
               <li><%= link_to "Change Account", edit_user_registration_path %></li>

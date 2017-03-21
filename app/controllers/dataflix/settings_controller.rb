@@ -11,4 +11,9 @@ class Dataflix::SettingsController < ApplicationController
       @address = Address.find(@user.address_id)
     end
   end
+
+  def rental_list
+    @user = User.find(params[:id])
+    @films = @user.films.select("*, rental_lists.film_format AS film_format")
+  end
 end

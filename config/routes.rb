@@ -32,6 +32,9 @@ Rails.application.routes.draw do
       collection do
         get :address
       end
+      member do
+        get :rental_list
+      end
     end
   end
 
