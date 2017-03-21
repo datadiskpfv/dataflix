@@ -2,49 +2,59 @@
   <h1>Administration Area</h1>
 </header>
 
-<div id="tasks">
-  <div class="admin-title">FILMS</div><br>
-  <div class="col-md-12 col-xs-12">
-    <%= link_to 'Films Area', films_path, class: "area" %>
-    <%= link_to 'Create Film', new_film_path, class: "new" %>
-    <%= link_to 'Import Films', import_films_path, class: "new" %>
-  </div>
-  <div class="admin-title">GENRES</div><br>
-  <div class="col-md-12 offset-md-1 col-xs-12">
-    <%= link_to 'Genres Area', genres_path, class: "area" %>
-    <%= link_to 'Create Genre', new_genre_path, class: "new" %>
-  </div>
-  <div class="admin-title">RATINGS</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Ratings Area', ratings_path, class: "area" %>
-    <%= link_to 'Create Rating', new_rating_path, class: "new" %>
-  </div>
-  <div class="admin-title">Genre Charts</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Genre Charts', genre_chart_films_path, class: "area" %>
-  </div>
-  <div class="admin-title">Countries</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Country Area', admin_countries_path, class: "area" %>
-    <%= link_to 'Create Country', new_admin_country_path, class: "new" %>
-  </div>
-  <div class="admin-title">Counties</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'County Area', admin_counties_path, class: "area" %>
-    <%= link_to 'Create County', new_admin_county_path, class: "new" %>
-  </div>
-  <div class="admin-title">Postcodes</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Postcode Area', admin_postcodes_path, class: "area" %>
-    <%= link_to 'Create Postcode', new_admin_postcode_path, class: "new" %>
-  </div>
-  <div class="admin-title">Addresses</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Address Area', admin_addresses_path, class: "area" %>
-    <%= link_to 'Create Address', new_admin_address_path, class: "new" %>
-  </div>
-  <div class="admin-title">Users</div><br>
-  <div class="col-md-12 offset-md-2 col-xs-12">
-    <%= link_to 'Search and Edit user', search_edit_admin_users_path, class: "area" %>
-  </div>
-</div>
+<table class="table table-striped table-condensed" style="width: 60%">
+  <tr>
+    <td><b>Films</b></td>
+    <td><%= link_to 'Films Area', films_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Film', new_film_path, class: "btn btn-xs btn-success" %></td>
+    <td><%= link_to 'Import Films', import_films_path, class: "btn btn-xs btn-primary" %></td>
+  </tr>
+  <tr>
+    <td><b>GENRES</b></td>
+    <td><%= link_to 'Genres Area', genres_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Genre', new_genre_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>RATINGS</b></td>
+    <td><%= link_to 'Ratings Area', ratings_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Rating', new_rating_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Genre Charts</b></td>
+    <td><%= link_to 'Genre Charts', genre_chart_films_path, class: "btn btn-xs btn-info" %></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Countries</b></td>
+    <td><%= link_to 'Country Area', admin_countries_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Country', new_admin_country_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Counties</b></td>
+    <td><%= link_to 'County Area', admin_counties_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create County', new_admin_county_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Postcodes</b></td>
+    <td><%= link_to 'Postcode Area', admin_postcodes_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Postcode', new_admin_postcode_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Addresses</b></td>
+    <td><%= link_to 'Address Area', admin_addresses_path, class: "btn btn-xs btn-info" %></td>
+    <td><%= link_to 'Create Address', new_admin_address_path, class: "btn btn-xs btn-success" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Users</b></td>
+    <td><%= link_to 'Search and Edit user', search_edit_admin_users_path, class: "btn btn-xs btn-info" %></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
