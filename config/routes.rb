@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :settings, only: [] do
       collection do
         get :address
+        get :remove_film_from_rental_list
       end
       member do
         get :rental_list
