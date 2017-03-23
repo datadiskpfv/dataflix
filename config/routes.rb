@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       collection do
         get :address
         get :remove_film_from_rental_list
+        get :add_film_to_rental_list
       end
       member do
         get :rental_list

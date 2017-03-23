@@ -1,5 +1,5 @@
 <header>
-  <h2>User <%= @user.email %> Rental List</h2>
+  <h2>User <%= @user.email.split("@").first %> Rental List</h2>
 </header>
 
 <table class="table table-striped table-condensed">
@@ -9,7 +9,7 @@
       <td><%= film.title %></td>
       <td><%= film.film_format %></td>
       <td><%= link_to 'Remove film from list',
-              remove_film_from_rental_list_dataflix_settings_path(:user_id => @user.id, :film_id => film.id),
+              remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id),
               class: "btn btn-xs btn-info" %></td>
     </tr>
   <% end %>

@@ -1,6 +1,6 @@
 class Dataflix::SettingsController < ApplicationController
 
-  before_action :set_rental_list, only: [:remove_film_from_rental_list]
+  #before_action :set_rental_list, only: [:remove_film_from_rental_list]
 
   def index
   end
@@ -23,10 +23,28 @@ class Dataflix::SettingsController < ApplicationController
   end
 
   def remove_film_from_rental_list
-    User.find(params[:user_id]).films
+    @rental_film = RentalList.find_by(id: params[:film_id])
 
-    flash[:alert] = 'Rental Film has been deleted.'
-    redirect_to root_path
+    if @rental_film.delete
+      flash[:notice] = 'Rental Film has been removed from rental list.'
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
+    else
+      flash.now[:alert] = 'Rental Film has not been removed to rental list.'
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
+    end
+  end
+
+  def add_film_to_rental_list
+    #@rental_list = RentalList.new(user_id: params[:user_id], film_id: params[:film_id], film_format: params[:film_format])
+    @rental_list = RentalList.new(rental_list_params)
+
+    if @rental_list.save
+      flash[:notice] = 'Rental Film has been added to rental list.'
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
+    else
+      flash.now[:alert] = 'Rental Film has not been added to rental list.'
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
+    end
   end
 
   private
@@ -39,6 +57,6 @@ class Dataflix::SettingsController < ApplicationController
   end
 
   def rental_list_params
-    params.require(:rental_list).permit(:user_id, :film_id)
+    params.require(dataflix/settings/rental_list).permit(:user_id, :film_id, :film_format)
   end
 end

@@ -6,6 +6,7 @@ class Film < ActiveRecord::Base
 
   has_many :rental_lists
   has_many :users, through: :rental_lists
+  accepts_nested_attributes_for :rental_lists
 
   mount_uploader :image1, ImageUploader
 
