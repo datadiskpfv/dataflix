@@ -57,6 +57,6 @@ class Dataflix::SettingsController < ApplicationController
   end
 
   def rental_list_params
-    params.require(dataflix/settings/rental_list).permit(:user_id, :film_id, :film_format)
+    params.permit(:user_id, :film_id, :film_format)
   end
 end
