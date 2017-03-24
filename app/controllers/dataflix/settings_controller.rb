@@ -1,6 +1,6 @@
 class Dataflix::SettingsController < ApplicationController
 
-  #before_action :set_rental_list, only: [:remove_film_from_rental_list]
+  before_action :set_rental_list, only: [:remove_film_from_rental_list]
 
   def index
   end
@@ -25,8 +25,8 @@ class Dataflix::SettingsController < ApplicationController
   def remove_film_from_rental_list
     #@rental_film = RentalList.find_by(id: params[:film_id])
 
-    @user = User.find(current_user.id)
-    @rental_film = @user.rental_lists.find_by(id: params[:film_id])
+    #@user = User.find(current_user.id)
+    #@rental_film = @user.rental_lists.find_by(id: params[:film_id])
 
     respond_to do |format|
       if @rental_film.delete
@@ -57,7 +57,9 @@ class Dataflix::SettingsController < ApplicationController
   private
 
   def set_rental_list
-    @rental_list = RentalList.find(params[:user_id], params[:film_id])
+    @user = User.find(current_user.id)
+    @rental_film = @user.rental_lists.find_by(params[:film_id])
+    #@rental_list = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'The rental film you were looking for could not be found'
     redirect_to rental_list_dataflix_setting_path(current_user.id)
