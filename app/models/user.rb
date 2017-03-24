@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :address
+
   has_many :rental_lists
   has_many :films, through: :rental_lists
-  accepts_nested_attributes_for :rental_lists
+  #accepts_nested_attributes_for :rental_lists
 
   def self.search(search)
     where("email LIKE ?", "%#{search}%")

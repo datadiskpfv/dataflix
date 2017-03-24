@@ -3,6 +3,8 @@ class Address < ActiveRecord::Base
   belongs_to :county
   belongs_to :country
 
+  has_many :users
+
   validates_presence_of :house_number, :unless => :house_name?, message: "You must have either house name or house number"
   validates_presence_of :house_name, :unless => :house_number?, message: "You must have either house name or house number"
 

@@ -47,7 +47,11 @@
             <% end %>
             <% if check_not_admin %>
                 <div>
-                  <button type="button" class="btn btn-warning btn-xs rental-button">Add to Rental List</button>
+                  <%= link_to 'Add to Rental List',
+                              add_film_to_rental_list_dataflix_settings_path(:user_id => current_user.id,
+                                                                             :film_id => film.id,
+                                                                             :film_format => 'blu-ray'),
+                              class: "btn btn-warning btn-xs rental-button" %>
                 </div>
             <% end %>
           </div>

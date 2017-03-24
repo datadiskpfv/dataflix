@@ -8,9 +8,10 @@
       <td><%= image_tag film.image1, size: "40x40" %></td>
       <td><%= film.title %></td>
       <td><%= film.film_format %></td>
-      <td><%= link_to 'Remove film from list',
+      <td id="remove_rental"><%= link_to 'Remove film from list',
               remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id),
-              class: "btn btn-xs btn-info" %></td>
+              class: "btn btn-xs btn-info rental-remove-btn",
+              data: { confirm: 'Are you sure you want to remove this film?', remote: true }%></td>
     </tr>
   <% end %>
 </table>
