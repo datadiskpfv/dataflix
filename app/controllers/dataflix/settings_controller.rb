@@ -63,7 +63,7 @@ class Dataflix::SettingsController < ApplicationController
     @rental_film = @user.rental_lists.find_by(params[:film_id])
     #@rental_list = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = 'The rental film you were looking for could not be found'
+    flash[:alert] = 'The rental films you were looking for could not be found'
     redirect_to rental_list_dataflix_setting_path(current_user.id)
   end
 
