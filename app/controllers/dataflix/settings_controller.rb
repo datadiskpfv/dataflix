@@ -23,19 +23,19 @@ class Dataflix::SettingsController < ApplicationController
   end
 
   def remove_film_from_rental_list
-    @rental_film = RentalList.find_by(id: params[:film_id])
+    #@rental_film = RentalList.find_by(id: params[:film_id])
 
-    #@user = User.find(current_user)
-    #@rental_film = @user.rental_lists.find_by(params[:film_id])
+    @user = User.find(current_user.id)
+    @rental_film = @user.rental_lists.find_by(id: params[:film_id])
 
     respond_to do |format|
       if @rental_film.delete
         #flash[:notice] = 'Rental Film has been removed from rental list.'
-        format.html { redirect_to rental_list_dataflix_setting_path(current_user) }
+        format.html { redirect_to rental_list_dataflix_setting_path(current_user.id) }
         format.js { render :nothing => true }
       else
         flash.now[:alert] = 'Rental Film has not been removed to rental list.'
-        format.html { redirect_to rental_list_dataflix_setting_path(current_user) }
+        format.html { redirect_to rental_list_dataflix_setting_path(current_user.id) }
       end
     end
   end
@@ -47,10 +47,10 @@ class Dataflix::SettingsController < ApplicationController
 
     if @rental_list.save
       #flash[:notice] = 'Rental Film has been added to rental list.'
-      redirect_to rental_list_dataflix_setting_path(current_user)
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
     else
       flash.now[:alert] = 'Rental Film has not been added to rental list.'
-      redirect_to rental_list_dataflix_setting_path(current_user)
+      redirect_to rental_list_dataflix_setting_path(current_user.id)
     end
   end
 
