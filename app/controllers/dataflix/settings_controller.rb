@@ -8,6 +8,7 @@ class Dataflix::SettingsController < ApplicationController
   def address
     @user = User.find(current_user.id)
 
+    ## use find_or_initialize_by to replace below
     if @user.address_id.blank?
       @address = Address.new()
     else
