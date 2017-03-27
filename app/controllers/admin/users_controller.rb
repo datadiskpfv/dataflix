@@ -47,6 +47,13 @@ class Admin::UsersController < ApplicationController
     redirect_to search_edit_admin_users_path
   end
 
+  def returns
+  end
+
+  def user_returns_list
+
+  end
+
   private
 
   def set_user

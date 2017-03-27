@@ -1,0 +1,14 @@
+<header>
+  <h2>User Film Returns</h2>
+</header>
+
+<div class="search-bar" style="width: 400px;">
+  <%= form_tag user_returns_list_admin_users_path, :method => 'search_table', class: 'input-group'  do %>
+      <%= text_field_tag :search_user, params[:search_user], class: 'form-control', placeholder: 'Search for user...' %>
+      <span class="input-group-btn">
+                  <%= button_tag( :class => "btn") do %>
+                      <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </span>
+  <% end %>
+</div>
