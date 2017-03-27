@@ -47,12 +47,19 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(params[:user_id])
     @rental_list = @user.rental_lists.build(rental_list_params)
 
-    if @rental_list.save
-      #flash[:notice] = 'Rental Film has been added to rental list.'
+    @rental_list_count = @user.rental_lists.count
+
+    if @rental_list_count > 4
+      flash[:alert] = 'Rental Film list is greater than 5 films, please remove some films.'
       redirect_to rental_list_dataflix_setting_path(current_user.id)
     else
-      flash.now[:alert] = 'Rental Film has not been added to rental list.'
-      redirect_to rental_list_dataflix_setting_path(current_user.id)
+      if @rental_list.save
+        #flash[:notice] = 'Rental Film has been added to rental list.'
+        redirect_to rental_list_dataflix_setting_path(current_user.id)
+      else
+        flash.now[:alert] = 'Rental Film has not been added to rental list.'
+        redirect_to rental_list_dataflix_setting_path(current_user.id)
+      end
     end
   end
 
@@ -60,8 +67,8 @@ class Dataflix::SettingsController < ApplicationController
 
   def set_rental_film
     @user = User.find(current_user.id)
-    @rental_film = @user.rental_lists.find_by(params[:film_id])
-    #@rental_list = RentalList.find(params[:user_id], params[:film_id])
+    @rental_film = @user.rental_lists.find_by(id: params[:film_id])
+    #@rental_film = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'The rental film you were looking for could not be found'
     redirect_to rental_list_dataflix_setting_path(current_user.id)
