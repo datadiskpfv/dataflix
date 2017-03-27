@@ -48,6 +48,8 @@ Rails.application.routes.draw do
       get :genre_chart
       get :import
       post :imports
+      get :stock
+      post :stock_location
     end
   end
 

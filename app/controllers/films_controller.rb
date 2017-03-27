@@ -25,15 +25,22 @@ class FilmsController < ApplicationController
 
   def search_table
     @genres = Genre.all
-    @search_string = params[:search]
+    #@search_string = params[:search]
 
     ## active_t is a scope
-    @films = Film.search(@search_string).active_t.paginate(:page => params[:page], :per_page => 6)
+    @films = Film.search(params[:search]).active_t.paginate(:page => params[:page], :per_page => 6)
   end
 
   def genre_chart
     ## i could put below directly in view but really playing passing parameters
     @chart_data = Film.active_t.joins(:genre1).group(:genre).count
+  end
+
+  def stock
+  end
+
+  def stock_location
+    @films = Film.search(params[:search_film]).active_t
   end
 
   def new

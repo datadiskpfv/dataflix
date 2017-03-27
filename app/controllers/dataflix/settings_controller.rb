@@ -20,15 +20,10 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(params[:id])
 
     ##the select * adds the additional columns in the rental_lists
-    @films = @user.films.select("*")
+    @films = @user.films.select("*").order('films.title ASC')
   end
 
   def remove_film_from_rental_list
-    #@rental_film = RentalList.find_by(id: params[:film_id])
-
-    #@user = User.find(current_user.id)
-    #@rental_film = @user.rental_lists.find_by(id: params[:film_id])
-
     respond_to do |format|
       if @rental_film.delete
         #flash[:notice] = 'Rental Film has been removed from rental list.'

@@ -1,0 +1,15 @@
+<header>
+  <h1>Administration Area</h1>
+</header>
+
+<table class="table table-striped table-condensed" style="width: 60%">
+  <tr>
+    <td><b>Film</b></td>
+  </tr>
+  <% @films.each do |film| %>
+    <tr>
+
+      <td><b><%= film.title %></b></td>
+    </tr>
+  <% end %>
+</table>

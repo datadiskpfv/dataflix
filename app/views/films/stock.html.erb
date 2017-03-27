@@ -1,0 +1,14 @@
+<header>
+  <h2>Search Stock Film Location</h2>
+</header>
+
+<div class="search-bar" style="width: 400px;">
+  <%= form_tag stock_location_films_path, :method => 'stock_table', class: 'input-group'  do %>
+      <%= text_field_tag :search_film, params[:search_film], class: 'form-control', placeholder: 'Search for film...' %>
+      <span class="input-group-btn">
+                  <%= button_tag( :class => "btn") do %>
+                      <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </span>
+  <% end %>
+</div>
