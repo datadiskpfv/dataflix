@@ -5,11 +5,15 @@
 <table class="table table-striped table-condensed" style="width: 60%">
   <tr>
     <td><b>Film</b></td>
+    <td><b>Blu-Ray stock</b></td>
+    <td><b>DVD stock</b></td>
   </tr>
   <% @films.each do |film| %>
     <tr>
 
       <td><b><%= film.title %></b></td>
+      <td><%= film.blu_ray_stock %></td>
+      <td><%= film.dvd_stock %></td>
     </tr>
   <% end %>
 </table>
