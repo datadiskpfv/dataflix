@@ -8,7 +8,10 @@
     <td><b>Blu-Ray stock</b></td>
     <td><b>DVD stock</b></td>
     <td><b>Blu-Ray Rental List</b></td>
-    <td><b>DVD Rental List</b></td>  </tr>
+    <td><b>DVD Rental List</b></td>
+    <td><b>Blu-Ray @ homes</b></td>
+    <td><b>DVD @ homes</b></td>
+  </tr>
   <% @films.each do |film| %>
     <tr>
 
@@ -17,6 +20,8 @@
       <td><%= film.dvd_stock %></td>
       <td><%= film.rental_lists.where(film_format: 'blu-ray').count %></td>
       <td><%= film.rental_lists.where(film_format: 'dvd').count %></td>
+      <td></td>
+      <td></td>
     </tr>
   <% end %>
 </table>
