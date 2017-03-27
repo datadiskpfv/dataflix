@@ -16,23 +16,25 @@ class Dataflix::SettingsController < ApplicationController
     end
   end
 
-  def rental_list
+  def film_list
     @user = User.find(params[:id])
 
     ##the select * adds the additional columns in the rental_lists
-    @films = @user.films.select("*").order('films.title ASC')
+    #@films = @user.films.select("*").order('films.title ASC')
+    @home_films = @user.films.select("*").where(rental_lists: { home: true}).order('films.title ASC')
+    @rental_films = @user.films.select("*").where(rental_lists: { home: false}).order('films.title ASC')
   end
 
   def remove_film_from_rental_list
     respond_to do |format|
       if @rental_film.delete
         #flash[:notice] = 'Rental Film has been removed from rental list.'
-        format.html { redirect_to rental_list_dataflix_setting_path(current_user.id) }
+        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
         #format.js { render :nothing => true }
         format.js { head :ok }
       else
         flash.now[:alert] = 'Rental Film has not been removed to rental list.'
-        format.html { redirect_to rental_list_dataflix_setting_path(current_user.id) }
+        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
       end
     end
   end
@@ -46,14 +48,14 @@ class Dataflix::SettingsController < ApplicationController
 
     if @rental_list_count > 4
       flash[:alert] = 'Rental Film list is greater than 5 films, please remove some films.'
-      redirect_to rental_list_dataflix_setting_path(current_user.id)
+      redirect_to film_list_dataflix_setting_path(current_user.id)
     else
       if @rental_list.save
         #flash[:notice] = 'Rental Film has been added to rental list.'
-        redirect_to rental_list_dataflix_setting_path(current_user.id)
+        redirect_to film_list_dataflix_setting_path(current_user.id)
       else
         flash.now[:alert] = 'Rental Film has not been added to rental list.'
-        redirect_to rental_list_dataflix_setting_path(current_user.id)
+        redirect_to film_list_dataflix_setting_path(current_user.id)
       end
     end
   end
@@ -66,7 +68,7 @@ class Dataflix::SettingsController < ApplicationController
     #@rental_film = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'The rental film you were looking for could not be found'
-    redirect_to rental_list_dataflix_setting_path(current_user.id)
+    redirect_to film_list_dataflix_setting_path(current_user.id)
   end
 
   def rental_list_params

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :dataflix do
+  get 'home_lists/index'
+  end
+
   devise_for :users
 
   root "films#index"
@@ -35,7 +39,7 @@ Rails.application.routes.draw do
         get :add_film_to_rental_list
       end
       member do
-        get :rental_list
+        get :film_list
       end
     end
   end
