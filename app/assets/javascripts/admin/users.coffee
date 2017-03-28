@@ -8,6 +8,8 @@
 
 $ ->
   $('.send-home-btn').on "ajax:success", ->
-    $(this).closest('tr').remove()
-    $(this).text('Film returned')
-    $('.home-list').append($(this).closest('tr'))
+    rowCount = $('.hole-list tr').length
+    if ( rowCount < 3 )
+      $(this).closest('tr').remove()
+      $(this).text('Film returned')
+      $('.home-list').append($(this).closest('tr'))
