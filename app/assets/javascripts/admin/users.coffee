@@ -8,8 +8,6 @@ $ ->
 
 $ ->
   $('.send-home-btn').on "ajax:success", ->
-      $('.home-list').append($(this).closest('tr'))
-
-$ ->
-  $('.send-home-btn').on "ajax:success", ->
-    $('.home-list').$(this).closest('a').html('Film Returned')
+    $(this).html('Film Returned')
+    $(this).text('Film Returned')
+    $('.home-list').append($(this).closest('tr'))
