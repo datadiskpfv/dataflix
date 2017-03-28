@@ -68,6 +68,7 @@ class Admin::UsersController < ApplicationController
       render inline: "location.reload();"
       #redirect_to user_returns_list_admin_users_path(id: @user.id)
       #render inline: "location.reload();"
+      #redirect_to :back, :params => @params
     else
       @film.home = true
       respond_to do |format|
