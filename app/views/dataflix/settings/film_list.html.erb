@@ -46,7 +46,7 @@
         <td><%= film.film_format %></td>
         <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
         <td id="remove_rental"><%= link_to 'Remove film from list',
-              remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id),
+              remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id, :user_id => @user.id),
               class: "btn btn-xs btn-info rental-remove-btn",
               data: { confirm: 'Are you sure you want to remove this film?', remote: true }%></td>
       </tr>

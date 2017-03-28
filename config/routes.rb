@@ -21,8 +21,8 @@ Rails.application.routes.draw do
       collection do
         get :search_edit
         post :search_table
-        get :returns
-        post :user_returns_list
+        get :user_returns_list
+        get :send_home
       end
       member do
         patch :archive

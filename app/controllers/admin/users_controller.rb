@@ -47,11 +47,32 @@ class Admin::UsersController < ApplicationController
     redirect_to search_edit_admin_users_path
   end
 
-  def returns
+  def user_returns_list
+    @user = User.find(params[:id])
+
+    ##the select * adds the additional columns in the rental_lists
+    #@films = @user.films.select("*").order('films.title ASC')
+    @home_films = @user.films.select("*").where(rental_lists: { home: true}).order('films.title ASC')
+    @rental_films = @user.films.select("*").where(rental_lists: { home: false}).order('films.title ASC')
   end
 
-  def user_returns_list
+  def send_home
+    @user = User.find(params[:user_id])
+    @film = @user.rental_lists.find_by(id: params[:film_id])
 
+    @film.home = true
+
+    respond_to do |format|
+      if @film.save
+        #flash[:notice] = 'Rental Film has been removed from rental list.'
+        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+        #format.js { render :nothing => true }
+        format.js { head :ok }
+      else
+        flash.now[:alert] = 'Rental Film has not been sent home.'
+        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+      end
+    end
   end
 
   private

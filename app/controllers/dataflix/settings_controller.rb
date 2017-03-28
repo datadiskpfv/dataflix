@@ -63,7 +63,7 @@ class Dataflix::SettingsController < ApplicationController
   private
 
   def set_rental_film
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @rental_film = @user.rental_lists.find_by(id: params[:film_id])
     #@rental_film = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
