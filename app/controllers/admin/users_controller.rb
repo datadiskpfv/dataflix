@@ -60,19 +60,29 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @film = @user.rental_lists.find_by(id: params[:film_id])
 
-    @film.home = true
+    @home_count = @user.rental_lists.where(home: true).count
 
-    respond_to do |format|
-      if @film.save
-        #flash[:notice] = 'Rental Film has been removed from rental list.'
-        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
-        #format.js { render :nothing => true }
-        format.js { head :ok }
-      else
-        flash.now[:alert] = 'Rental Film has not been sent home.'
-        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+    if @home_count > 2
+      puts "Home Count: #{@home_count}"
+      flash[:alert] = 'Maximum Films at Home is 3 films.'
+      render inline: "location.reload();"
+      #redirect_to user_returns_list_admin_users_path(id: @user.id)
+      #render inline: "location.reload();"
+    else
+      @film.home = true
+      respond_to do |format|
+        if @film.save
+          #flash[:notice] = 'Rental Film has been removed from rental list.'
+          format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+          #format.js { render :nothing => true }
+          format.js { head :ok }
+        else
+          flash.now[:alert] = 'Rental Film has not been sent home.'
+          format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+        end
       end
     end
+
   end
 
   private

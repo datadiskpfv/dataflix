@@ -44,7 +44,7 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(params[:user_id])
     @rental_list = @user.rental_lists.build(rental_list_params)
 
-    @rental_list_count = @user.rental_lists.count
+    @rental_list_count = @user.rental_lists.where(home: false).count
 
     if @rental_list_count > 4
       flash[:alert] = 'Rental Film list is greater than 5 films, please remove some films.'

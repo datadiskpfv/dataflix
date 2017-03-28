@@ -2,12 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('.send-home-btn').on "ajax:success", ->
-    $(this).closest('tr').remove()
+#$ ->
+#  $('.send-home-btn').on "ajax:success", ->
+#    $(this).closest('tr').remove()
 
 $ ->
   $('.send-home-btn').on "ajax:success", ->
-    $(this).html('Film Returned')
-    $(this).text('Film Returned')
+    $(this).closest('tr').remove()
+    $(this).text('Film returned')
     $('.home-list').append($(this).closest('tr'))
