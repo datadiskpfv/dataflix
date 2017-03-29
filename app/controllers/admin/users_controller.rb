@@ -65,7 +65,8 @@ class Admin::UsersController < ApplicationController
     if @home_count > 2
       puts "Home Count: #{@home_count}"
       flash[:alert] = 'Maximum Films at Home is 3 films.'
-      render js: "window.location='#{user_returns_list_admin_users_path(id: @user.id)}'"
+      #render js: "window.location='#{user_returns_list_admin_users_path(id: @user.id)}'"
+      render :nothing => true
     else
       @film.home = true
       respond_to do |format|
