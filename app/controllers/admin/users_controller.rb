@@ -65,21 +65,17 @@ class Admin::UsersController < ApplicationController
     if @home_count > 2
       puts "Home Count: #{@home_count}"
       flash[:alert] = 'Maximum Films at Home is 3 films.'
-      render inline: "location.reload();"
-      #redirect_to user_returns_list_admin_users_path(id: @user.id)
-      #render inline: "location.reload();"
-      #redirect_to :back, :params => @params
+      render js: "window.location='#{user_returns_list_admin_users_path(id: @user.id)}'"
     else
       @film.home = true
       respond_to do |format|
         if @film.save
-          #flash[:notice] = 'Rental Film has been removed from rental list.'
-          format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+          format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
           #format.js { render :nothing => true }
           format.js { head :ok }
         else
           flash.now[:alert] = 'Rental Film has not been sent home.'
-          format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+          format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
         end
       end
     end

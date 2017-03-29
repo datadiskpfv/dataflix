@@ -8,9 +8,14 @@
 
 $ ->
   $('.send-home-btn').on "ajax:success", ->
-    rowCount = $('.hole-list tr').length
+    rowCount = $('.home-list tr').length
+    console.log 'Row Count: ' + rowCount
     #rowCount = "<%= @home_count %>"
     if ( rowCount < 4 )
       $(this).closest('tr').remove()
       $(this).text('Film returned')
       $('.home-list').append($(this).closest('tr'))
+
+$ ->
+  $('.rental-remove-btn').on "ajax:success", ->
+    $('.alert').remove()
