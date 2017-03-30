@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         post :search_table
         get :user_returns_list
         get :send_home
+        post :film_format
       end
       member do
         patch :archive
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
         get :address
         get :remove_film_from_rental_list
         get :add_film_to_rental_list
+        get :user_defaults
       end
       member do
         get :film_list

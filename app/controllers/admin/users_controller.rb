@@ -84,6 +84,19 @@ class Admin::UsersController < ApplicationController
 
   end
 
+  def film_format
+    @user = User.find(current_user.id)
+    @user.film_format = params[:film_format][:format]
+
+    if @user.save
+      flash[:notice] = 'Film format has been updated.'
+      redirect_to user_defaults_dataflix_settings_path
+    else
+      flash.now[:alert] = 'Film format has not been updated.'
+      render 'dataflix/settings/user_defaults'
+    end
+  end
+
   private
 
   def set_user

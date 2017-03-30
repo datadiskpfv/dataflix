@@ -62,6 +62,10 @@ class Dataflix::SettingsController < ApplicationController
     end
   end
 
+  def user_defaults
+    @user = User.find(current_user.id)
+  end
+
   private
 
   def set_rental_film

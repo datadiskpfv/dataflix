@@ -1,0 +1,9 @@
+<header>
+  <h2><%= get_user_name(@user) %> defaults</h2>
+</header>
+
+<%= simple_form_for :film_format, url: film_format_admin_users_path do |f| %>
+    Film format (<%= @user.film_format %>) :
+    <%= f.select :format, ['blu-ray', 'dvd']%>
+    <%= f.button :submit, { class: "btn btn-xs btn-primary" } %>
+<% end %>
