@@ -19,6 +19,8 @@ class Dataflix::SettingsController < ApplicationController
   def film_list
     @user = User.find(params[:id])
 
+    @address_count = @user.address
+
     ##the select * adds the additional columns in the rental_lists
     #@films = @user.films.select("*").order('films.title ASC')
     @home_films = @user.films.select("*").where(rental_lists: { home: true}).order('films.title ASC')

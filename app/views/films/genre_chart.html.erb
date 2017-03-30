@@ -21,14 +21,24 @@
       <%= column_chart Film.active_t.joins(:genre2).group(:genre).count %>
     </div>
     <div class="col-xs-6 charts">
-      <h3>Films at home top 10 Data Chart</h3>
-      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true}).order('count(title) DESC').limit(10).count %>
-      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true}).order('count(title) DESC').limit(10).count %>
+      <h3>Films at home (blu-ray) top 10 Data Chart</h3>
+      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true, film_format: 'blu-ray'}).order('count(title) DESC').limit(10).count %>
+      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true, film_format: 'blu-ray'}).order('count(title) DESC').limit(10).count %>
     </div>
     <div class="col-xs-6 charts">
-      <h3>Films on rental list top 10 Data Chart</h3>
-      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false}).order('count(title) DESC').limit(10).count %>
-      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false}).order('count(title) DESC').limit(10).count %>
+      <h3>Films at home (dvd) top 10 Data Chart</h3>
+      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true, film_format: 'dvd'}).order('count(title) DESC').limit(10).count %>
+      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: true, film_format: 'dvd'}).order('count(title) DESC').limit(10).count %>
+    </div>
+    <div class="col-xs-6 charts">
+      <h3>Films on rental list (blu-ray) top 10 Data Chart</h3>
+      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false, film_format: 'blu-ray'}).order('count(title) DESC').limit(10).count %>
+      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false, film_format: 'blu-ray'}).order('count(title) DESC').limit(10).count %>
+    </div>
+    <div class="col-xs-6 charts">
+      <h3>Films on rental list (dvd) top 10 Data Chart</h3>
+      Chart Data: <%= Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false, film_format: 'dvd'}).order('count(title) DESC').limit(10).count %>
+      <%= column_chart Film.joins(:rental_lists).group(:title).where(rental_lists: {home: false, film_format: 'dvd'}).order('count(title) DESC').limit(10).count %>
     </div>
   </div>
 </div>

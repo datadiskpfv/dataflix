@@ -49,6 +49,7 @@ class Admin::UsersController < ApplicationController
 
   def user_returns_list
     @user = User.find(params[:id])
+    @address_count = @user.address
 
     ##the select * adds the additional columns in the rental_lists
     #@films = @user.films.select("*").order('films.title ASC')

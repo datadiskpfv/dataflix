@@ -7,9 +7,12 @@
 <br>
 <table class="table table-striped table-condensed home-list" style="width: 60%">
 
-  <% if @home_films.size == 0 %>
-      <span style="color:red;font-weight:bold"> You have no films at home </span>
+  <% if @address_count.nil? %>
+      <span style="color:red;font-size:25px;font-weight:bold;">You must add an address so that films can be sent to you</span>
   <% else %>
+    <% if @home_films.size == 0 %>
+      <span style="color:red;font-weight:bold"> You have no films at home </span>
+    <% else %>
       <tr>
         <td></td>
         <td><b>Film</b></td>
@@ -17,17 +20,18 @@
         <td><b>Sent On</b></td>
         <td><b>Film Returned</b></td>
       </tr>
-    <% @home_films.each do |film| %>
-      <tr id="rental_row">
-        <td><%= image_tag film.image1, size: "40x40" %></td>
-        <td><%= film.title %></td>
-        <td><%= film.film_format %></td>
-        <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
-        <td id="remove_rental"><%= link_to 'Film returned',
+      <% @home_films.each do |film| %>
+        <tr id="rental_row">
+          <td><%= image_tag film.image1, size: "40x40" %></td>
+          <td><%= film.title %></td>
+          <td><%= film.film_format %></td>
+          <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
+          <td id="remove_rental"><%= link_to 'Film returned',
                                            remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id, :user_id => @user.id),
                                            class: "btn btn-xs btn-info rental-remove-btn",
                                            data: { confirm: 'Are you sure you want to remove this film?', remote: true }%></td>
-      </tr>
+        </tr>
+      <% end %>
     <% end %>
   <% end %>
 </table>
@@ -50,10 +54,14 @@
         <td><%= film.title %></td>
         <td><%= film.film_format %></td>
         <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
-        <td id="send_to_home"><%= link_to 'Send Home',
-              send_home_admin_users_path(:film_id => film.id, :user_id => @user.id),
-              class: "btn btn-xs btn-info send-home-btn",
-              data: { confirm: 'Are you sure you want to send this film?', remote: true }%></td>
+        <% if @address_count.nil? %>
+            <td id="send_to_home"><%= link_to 'Send Home', root_path, class: "btn btn-xs btn-info disabled" %></td>
+        <% else %>
+            <td id="send_to_home"><%= link_to 'Send Home',
+                                              send_home_admin_users_path(:film_id => film.id, :user_id => @user.id),
+                                              class: "btn btn-xs btn-info send-home-btn",
+                                              data: { confirm: 'Are you sure you want to send this film?', remote: true }%></td>
+        <% end %>
       </tr>
     <% end %>
   <% end %>
