@@ -30,6 +30,18 @@ class Address < ActiveRecord::Base
            "
   end
 
+  def to_s
+    return "#{house_name}
+    #{house_number},
+            #{address1},
+            #{address2},
+            #{city},
+            #{county},
+            #{country},
+            #{postcode}
+    "
+  end
+
   def get_link_id_address
     if house_name.blank?
       return ("#{house_number}_#{postcode}").parameterize.underscore

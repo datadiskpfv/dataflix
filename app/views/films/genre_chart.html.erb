@@ -20,5 +20,10 @@
       Chart Data: <%= Film.active_t.joins(:genre2).group(:genre).count %>
       <%= column_chart Film.active_t.joins(:genre2).group(:genre).count %>
     </div>
+    <div class="col-xs-6 charts">
+      <h3>Genre 2 Data Chart</h3>
+      Chart Data: <%= Film.active_t.joins(:genre2).group(:genre).count %>
+      <%= column_chart Film.active_t.joins(:genre2).group(:genre).count %>
+    </div>
   </div>
 </div>

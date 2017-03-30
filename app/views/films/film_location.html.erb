@@ -1,0 +1,14 @@
+<header>
+  <h2>Film Location - <%= @film.title %> <small>(<%= @film_format %>)</small></h2>
+</header>
+<h3></h3>
+<table class="table table-striped table-condensed" style="width: 80%">
+  <th>User</th>
+  <th>Address</th>
+  <% @film_location.each do |film| %>
+    <tr>
+      <td><%= film.user.email %></td>
+      <td><%= film.user.address %></td>
+    </tr>
+<% end %>
+</table>

@@ -89,6 +89,14 @@ class FilmsController < ApplicationController
     #redirect_to root_url, notice: 'Products imported.'
   end
 
+  def film_location
+    #@user = User.find(params[:user_id])
+    @film = Film.find(params[:film_id])
+    @film_format = params[:film_format]
+
+    @film_location = @film.rental_lists.where(home: true, film_format: params[:film_format])
+  end
+
   private
 
   def set_film

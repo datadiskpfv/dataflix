@@ -20,6 +20,15 @@
       <td><%= film.dvd_stock %></td>
       <td><%= film.rental_lists.where(film_format: 'blu-ray').count %></td>
       <td><%= film.rental_lists.where(film_format: 'dvd').count %></td>
+      <td>
+        <%= link_to film.rental_lists.where(film_format: 'blu-ray', home: true).count,
+                    film_location_films_path(film_id: film.id, film_format: 'blu-ray')
+        %>
+      </td>
+      <td>
+        <%= link_to film.rental_lists.where(film_format: 'dvd', home: true).count,
+                    film_location_films_path(film_id: film.id, film_format: 'dvd') %>
+      </td>
       <td></td>
       <td></td>
     </tr>

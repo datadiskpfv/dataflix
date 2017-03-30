@@ -33,28 +33,37 @@
             <%= film.release_year %>
           </div>
           <div>
-          <% if film.blu_ray_stock? %>
-              <%= link_to 'blu-ray', film_path(film) %>,
-          <% end %>
-          <% if film.dvd_stock? %>
-              <%= link_to 'dvd', film_path(film) %>
-          <% end %>
-          <%= image_tag(film.rating, size: "20x20") %>
+            <%= image_tag(film.rating, size: "20x20") %>
           </div>
-          <div id="tasks">
-            <% admins_only do %>
+          <div>
+          <% if user_signed_in? %>
+              <% if film.blu_ray_stock? %>
+                <%= link_to 'blu-ray', film_path(film) %>,
+              <% end %>
+              <% if film.dvd_stock? %>
+                <%= link_to 'dvd', film_path(film) %>
+              <% end %>
+
+            </div>
+            <div id="tasks">
+              <% admins_only do %>
                 <div class="actions">
                   <%= link_to 'Edit Film', edit_film_path(film.id), class: 'new' %>
                   <%= link_to 'Delete Film', @film, method: :delete,
                               data: { confirm: 'Are you sure you want to delete this film?' },
                               class: 'delete' %>
                 </div>
-            <% end %>
-            <% if check_not_admin %>
+              <% end %>
+              <% if check_not_admin %>
                 <div>
                   <button type="button" class="btn btn-warning btn-xs rental-button">Add to Rental List</button>
                 </div>
-            <% end %>
+              <% end %>
+          <% else %>
+            <br>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary" %>
+            <%= link_to 'Sign In', new_user_session_path, class: "btn btn-info" %>
+          <% end %>
           </div>
         </div>
       </div>

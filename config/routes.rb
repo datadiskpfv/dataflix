@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       post :imports
       get :stock
       post :stock_location
+      get :film_location
     end
   end
 

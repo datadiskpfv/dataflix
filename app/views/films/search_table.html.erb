@@ -23,16 +23,18 @@
             <%= film.release_year %>
           </div>
           <div>
-          <% if film.blu_ray_stock? %>
+          <% if user_signed_in? %>
+            <% if film.blu_ray_stock? %>
               <%= link_to 'blu-ray',
               add_film_to_rental_list_dataflix_settings_path(:user_id => current_user.id,
                                                              :film_id => film.id,
                                                              :film_format => 'blu-ray') %>,
-          <% end %>
-          <% if film.dvd_stock? %>
+            <% end %>
+            <% if film.dvd_stock? %>
               <%= link_to 'dvd', add_film_to_rental_list_dataflix_settings_path(:user_id => current_user.id,
                                                                                 :film_id => film.id,
                                                                                 :film_format => 'dvd') %>
+            <% end %>
           <% end %>
           <%= image_tag(film.rating, size: "20x20") %>
           </div>
@@ -46,13 +48,19 @@
                 </div>
             <% end %>
             <% if check_not_admin %>
-                <div>
-                  <%= link_to 'Add to Rental List',
+                <% if user_signed_in? %>
+                  <div>
+                    <%= link_to 'Add to Rental List',
                               add_film_to_rental_list_dataflix_settings_path(:user_id => current_user.id,
                                                                              :film_id => film.id,
                                                                              :film_format => 'blu-ray'),
                               class: "btn btn-warning btn-xs rental-button" %>
-                </div>
+                  </div>
+                <% else %>
+                    <br>
+                    <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary" %>
+                    <%= link_to 'Sign In', new_user_session_path, class: "btn btn-info" %>
+                <% end %>
             <% end %>
           </div>
         </div>
