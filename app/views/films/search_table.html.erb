@@ -1,6 +1,6 @@
 <% @title = "Films found" %>
 <header>
-   <h2>Films found searching for <%= @search_string %></h2>
+   <h2>Films found <%= @films.count %> <small>(search string: <%= @search_string %> )</small></h2>
 </header>
 
 <div id="wrapper">
