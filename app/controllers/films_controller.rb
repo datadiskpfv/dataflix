@@ -25,9 +25,11 @@ class FilmsController < ApplicationController
 
   def search_table
     @genres = Genre.all
-    #@search_string = params[:search]
+    @search_string = params[:search]
 
-    @user = User.find(current_user.id)
+    if current_user
+      @user = User.find(current_user.id)
+    end
 
     ## active_t is a scope
     @films = Film.search(params[:search]).active_t.paginate(:page => params[:page], :per_page => 6)
