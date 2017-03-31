@@ -3,7 +3,18 @@ class FilmsController < ApplicationController
   before_action :set_film, only: [:edit, :update, :destroy]
 
   def index
-    @films = Film.all
+    #@films = Film.all
+    #@films_action = Film.active_t.joins(:genre1).where(genres: {genre: 'Action'})
+    #@films_horror = Film.active_t.joins(:genre1).where(genres: {genre: 'Horror'})
+
+    @genre_action = Genre.find_by_genre('Action').id
+    @films_action = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_action, @genre_action).order(release_year: :desc, release_month: :desc)
+
+    @genre_thriller = Genre.find_by_genre('Thriller').id
+    @films_thriller = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_thriller, @genre_thriller).order(release_year: :desc, release_month: :desc)
+
+    @genre_horror = Genre.find_by_genre('Horror').id
+    @films_horror = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_horror, @genre_horror).order(release_year: :desc, release_month: :desc)
   end
 
   def show

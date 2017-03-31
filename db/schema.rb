@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330122913) do
+ActiveRecord::Schema.define(version: 20170331111418) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170330122913) do
     t.integer  "blu_ray_stock"
     t.integer  "dvd_stock"
     t.boolean  "active",        default: false
+    t.string   "release_month"
   end
 
   add_index "films", ["genre1_id"], name: "index_films_on_genre1_id"
