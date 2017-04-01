@@ -42,6 +42,7 @@ GEM
     autoprefixer-rails (6.7.6)
       execjs
     awesome_print (1.7.0)
+    barby (0.6.5)
     bcrypt (3.1.11-x64-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -232,6 +233,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
+  barby
   bcrypt (= 3.1.11)
   bootstrap-sass (~> 3.3)
   bootstrap-will_paginate (~> 0.0.10)

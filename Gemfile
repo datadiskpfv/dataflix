@@ -62,6 +62,9 @@ gem 'bcrypt', '3.1.11', :platform => :ruby
 ## used for import excel or csv files
 gem 'roo'
 
+## used to genrate barcodes
+gem 'barby'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

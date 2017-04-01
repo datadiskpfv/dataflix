@@ -112,6 +112,26 @@ class FilmsController < ApplicationController
     @film_location = @film.rental_lists.where(home: true, film_format: params[:film_format])
   end
 
+  def barcode
+    require 'barby/barcode/ean_13'
+    require 'barby/barcode/code_128'
+    require 'barby/outputter/html_outputter'
+    require 'barby/outputter/png_outputter'
+
+    #@film_barcode = Film.find(params[:film_id]).barcode
+
+    @films = Film.all
+
+    @films.each do |film|
+      @film_barcode = Barby::EAN13.new("#{film.barcode}")
+      @film_barcode_for_html = Barby::HtmlOutputter.new(@film_barcode)
+
+      film.barcode_table = @film_barcode_for_html.to_html
+
+      film.save
+    end
+  end
+
   private
 
   def set_film

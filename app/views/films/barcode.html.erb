@@ -1,0 +1,15 @@
+<header>
+  <h2>Film</h2>
+</header>
+
+<table>
+  <% @films.each do |film| %>
+    <tr>
+      <td>
+      <%= film.title %>
+      <%= film.barcode_table.html_safe %>
+      &nbsp
+      </td>
+    <tr>
+  <% end %>
+</table>

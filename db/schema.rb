@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331111418) do
+ActiveRecord::Schema.define(version: 20170401182719) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20170331111418) do
   create_table "films", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "genre1_id"
     t.integer  "genre2_id"
     t.integer  "rating_id"
@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(version: 20170331111418) do
     t.string   "release_year"
     t.integer  "blu_ray_stock"
     t.integer  "dvd_stock"
-    t.boolean  "active",        default: false
+    t.boolean  "active",                  default: false
     t.string   "release_month"
+    t.integer  "barcode",       limit: 8
+    t.string   "barcode_table"
   end
 
   add_index "films", ["genre1_id"], name: "index_films_on_genre1_id"
