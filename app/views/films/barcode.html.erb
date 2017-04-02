@@ -2,14 +2,16 @@
   <h2>Film</h2>
 </header>
 
-<table>
-  <% @films.each do |film| %>
-    <tr>
-      <td>
-      <%= film.title %>
-      <%= film.barcode_table.html_safe %>
-      &nbsp
-      </td>
-    <tr>
+<table style="width: 100%">
+  <% @films.in_groups_of(4, false) do |film_group| %>
+      <tr>
+        <% film_group.each do |film| %>
+            <td>
+              <%= film.title %>
+              <%= film.barcode_table.html_safe %>
+              &nbsp
+            </td>
+        <% end %>
+      </tr>
   <% end %>
 </table>
