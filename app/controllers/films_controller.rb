@@ -36,14 +36,24 @@ class FilmsController < ApplicationController
 
   def search_table
     @genres = Genre.all
+
     @search_string = params[:search]
 
-    if current_user
-      @user = User.find(current_user.id)
-    end
+    puts "Search String: #{@search_string}"
 
-    ## active_t is a scope
-    @films = Film.search(params[:search]).active_t.paginate(:page => params[:page], :per_page => 6)
+    if @search_string =~ /^\d{13}$/
+      @film_barcode = @search_string.chop
+      @film = Film.find_by_barcode("#{@film_barcode}")
+
+      redirect_to film_path(id: @film.id)
+    else
+      if current_user
+        @user = User.find(current_user.id)
+      end
+
+      ## active_t is a scope
+      @films = Film.search(@search_string).active_t.paginate(:page => params[:page], :per_page => 6)
+    end
   end
 
   def genre_chart
