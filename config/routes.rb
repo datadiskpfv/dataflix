@@ -60,6 +60,8 @@ Rails.application.routes.draw do
       post :stock_location
       get :film_location
       get :barcode
+      get :barcode_form
+      post :barcode_find
     end
   end
 

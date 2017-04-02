@@ -116,7 +116,6 @@ class FilmsController < ApplicationController
     require 'barby/barcode/ean_13'
     require 'barby/barcode/code_128'
     require 'barby/outputter/html_outputter'
-    require 'barby/outputter/png_outputter'
 
     #@film_barcode = Film.find(params[:film_id]).barcode
 
@@ -130,6 +129,16 @@ class FilmsController < ApplicationController
 
       film.save
     end
+  end
+
+  def barcode_form
+  end
+
+  def barcode_find
+    @film_barcode = params[:barcode].chop
+    @film = Film.find_by_barcode("#{@film_barcode}")
+
+    redirect_to film_path(id: @film.id)
   end
 
   private
