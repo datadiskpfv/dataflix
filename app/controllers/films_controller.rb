@@ -127,8 +127,6 @@ class FilmsController < ApplicationController
     require 'barby/barcode/code_128'
     require 'barby/outputter/html_outputter'
 
-    #@film_barcode = Film.find(params[:film_id]).barcode
-
     @films = Film.all
 
     @films.each do |film|

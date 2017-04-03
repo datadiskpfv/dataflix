@@ -37,6 +37,7 @@ class Dataflix::SettingsController < ApplicationController
       else
         flash.now[:alert] = 'Rental Film has not been removed to rental list.'
         format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
+        format.js { head :ok }
       end
     end
   end
