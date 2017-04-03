@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       collection do
         get :address
         get :remove_film_from_rental_list
+        post :remove_film_from_rental_list
         get :add_film_to_rental_list
         get :user_defaults
       end

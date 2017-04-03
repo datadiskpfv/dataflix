@@ -35,6 +35,17 @@
     <% end %>
   <% end %>
 </table>
+<div class="search-bar" style="width: 400px;">
+  <%= form_tag remove_film_from_rental_list_dataflix_settings_path, :method => 'remove_film_from_rental_list', class: 'input-group rental-remove-btn', remote: true  do %>
+      <%= text_field_tag :barcode, params[:barcode], class: 'form-control', placeholder: 'Film returned using barcode...' %>
+      <%= hidden_field_tag "user_id", @user.id %>
+      <span class="input-group-btn">
+                  <%= button_tag( :class => "btn") do %>
+                      <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </span>
+  <% end %>
+</div>
 <br><br>
 <h3>Rental List <small>(5 maximum)</small></h3>
 <br>

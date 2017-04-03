@@ -31,12 +31,12 @@ class Dataflix::SettingsController < ApplicationController
     respond_to do |format|
       if @rental_film.delete
         #flash[:notice] = 'Rental Film has been removed from rental list.'
-        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+        format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
         #format.js { render :nothing => true }
         format.js { head :ok }
       else
         flash.now[:alert] = 'Rental Film has not been removed to rental list.'
-        format.html { redirect_to film_list_dataflix_setting_path(current_user.id) }
+        format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
       end
     end
   end
@@ -70,7 +70,13 @@ class Dataflix::SettingsController < ApplicationController
 
   def set_rental_film
     @user = User.find(params[:user_id])
-    @rental_film = @user.rental_lists.find_by(id: params[:film_id])
+    if params[:barcode]
+      @film_barcode = params[:barcode].chop
+      @rental_film_id = Film.find_by_barcode("#{@film_barcode}").id
+      @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
+    else
+      @rental_film = @user.rental_lists.find_by(id: params[:film_id])
+    end
     #@rental_film = RentalList.find(params[:user_id], params[:film_id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'The rental film you were looking for could not be found'
