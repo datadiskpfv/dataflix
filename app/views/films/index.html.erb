@@ -3,7 +3,7 @@
 </header>
 
 <div>
-  <div class="action">
+  <div class="action" id="action">
     <span class="genre-title">Action </span>
     <span class="genre-link"><%= link_to 'View All Action Films', {:controller => "films", :action => "table", :genre1 => 'Action'} %></span>
     <div class="slider">
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="thriller">
+  <div class="thriller" id="thriller">
     <span class="genre-title">Thriller </span>
     <span class="genre-link"><%= link_to 'View All Thriller Films', {:controller => "films", :action => "table", :genre1 => 'Thriller'} %></span>
     <div class="slider">
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div class="horror">
+  <div class="horror" id="thriller">
     <span class="genre-title">Horror </span>
     <span class="genre-link"><%= link_to 'View All Horror Films', {:controller => "films", :action => "table", :genre1 => 'Horror'} %></span>
     <div class="slider">
