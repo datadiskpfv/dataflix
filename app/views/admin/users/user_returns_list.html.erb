@@ -57,6 +57,7 @@
     <td></td>
     <td><b>Film</b></td>
     <td><b>Disc Format</b></td>
+    <td><b>Warehouse Stock</b></td>
     <td><b>Added to List on</b></td>
     <td><b>Remove from List</b></td>
     <% @rental_films.each do |film| %>
@@ -64,6 +65,13 @@
         <td><%= image_tag film.image1, size: "40x40" %></td>
         <td><%= film.title %></td>
         <td><%= film.film_format %></td>
+
+        <% if film.film_format == 'blu-ray' %>
+            <td><%= film.blu_ray_wstock %></td>
+        <% else %>
+            <td><%= film.dvd_wstock %></td>
+        <% end %>
+
         <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
         <% if @address_count.nil? %>
             <td id="send_to_home"><%= link_to 'Send Home', root_path, class: "btn btn-xs btn-info disabled" %></td>
