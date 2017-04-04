@@ -18,7 +18,7 @@ $ ->
     location.reload();
 
 $ ->
-  $('.barcode-field').on focusout: ->
+  $('.barcode-field').on keyup: ->
     if ( $(this).val().length != 13 )
       $('#barcode-alert').remove()
       $(this).closest('div').append('<span id="barcode-alert" style="color:red">Barcode needs to be 13 digits</span>')
