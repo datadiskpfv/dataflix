@@ -73,8 +73,20 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(params[:user_id])
     if params[:barcode]
       @film_barcode = params[:barcode].chop
-      @rental_film_id = Film.find_by_barcode("#{@film_barcode}").id
-      @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
+
+      begin
+        @rental_film_id = Film.find_by_barcode("#{@film_barcode}").id
+      rescue ActiveRecord::RecordNotFound
+        flash[:alert] = "Invalid barcode"
+        render :nothing => true
+      end
+
+      begin
+        @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
+      rescue ActiveRecord::RecordNotFound
+        flash[:alert] = "User does not have this film"
+        render :nothing => true
+      end
     else
       @rental_film = @user.rental_lists.find_by(id: params[:film_id])
     end
