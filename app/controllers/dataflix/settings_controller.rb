@@ -28,8 +28,17 @@ class Dataflix::SettingsController < ApplicationController
   end
 
   def remove_film_from_rental_list
+
+    ## decrease the warehouse stock
+    if params[:film_format] == 'blu-ray'
+      @rental_film.film.blu_ray_wstock += 1
+    else
+      @rental_film.film.dvd_wstock += 1
+    end
+
     respond_to do |format|
       if @rental_film.delete
+         @rental_film.film.save
         #flash[:notice] = 'Rental Film has been removed from rental list.'
         format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
         #format.js { render :nothing => true }
@@ -71,29 +80,35 @@ class Dataflix::SettingsController < ApplicationController
 
   def set_rental_film
     @user = User.find(params[:user_id])
+
     if params[:barcode]
-      @film_barcode = params[:barcode].chop
+     respond_to do |format|
+       @film_barcode = params[:barcode].chop
+       @rental_film = Film.find_by_barcode("#{@film_barcode}")
 
-      begin
-        @rental_film_id = Film.find_by_barcode("#{@film_barcode}").id
-      rescue ActiveRecord::RecordNotFound
-        flash[:alert] = "Invalid barcode"
-        render :nothing => true
-      end
+       ## lets make sure the film has been found using the barcode
+       if @rental_film.nil?
+         puts "Film is nil"
+         flash[:alert] = "Invalid barcode"
+         format.js { head :ok }
+       else
+         @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film.id)
 
-      @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
-
-      if @rental_film.nil?
-        flash[:alert] = "User does not have this film"
-        render :nothing => true
-      end
+         ## let make sure that the user does have the film at home
+         if @rental_film.nil?
+           flash[:alert] = "User does not have this film at home"
+           format.js { head :ok }
+         end
+       end
+     end
     else
+      ## non-barcode films, using the return film button
       @rental_film = @user.rental_lists.find_by(id: params[:film_id])
     end
     #@rental_film = RentalList.find(params[:user_id], params[:film_id])
-  rescue ActiveRecord::RecordNotFound
-    flash[:alert] = 'The rental film you were looking for could not be found'
-    redirect_to film_list_dataflix_setting_path(current_user.id)
+  #rescue ActiveRecord::RecordNotFound
+    #flash[:alert] = 'The rental film you were looking for could not be found'
+    #redirect_to film_list_dataflix_setting_path(current_user.id)
   end
 
   def rental_list_params

@@ -74,6 +74,8 @@ class FilmsController < ApplicationController
 
   def create
     @film = Film.new(film_params)
+    @film.blu_ray_wstock = params[:blu_ray_stock]
+    @film.dvd_wstock = params[:dvd_stock]
 
     if @film.save
       flash[:notice] = 'Film has been created.'

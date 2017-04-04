@@ -27,7 +27,7 @@
           <td><%= film.film_format %></td>
           <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
           <td id="remove_rental"><%= link_to 'Film returned',
-                                           remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id, :user_id => @user.id),
+                                           remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id, :user_id => @user.id, :film_format => film.film_format),
                                            class: "btn btn-xs btn-info rental-remove-btn",
                                            data: { confirm: 'Are you sure you want to remove this film?', remote: true }%></td>
         </tr>
@@ -69,7 +69,7 @@
             <td id="send_to_home"><%= link_to 'Send Home', root_path, class: "btn btn-xs btn-info disabled" %></td>
         <% else %>
             <td id="send_to_home"><%= link_to 'Send Home',
-                                              send_home_admin_users_path(:film_id => film.id, :user_id => @user.id),
+                                              send_home_admin_users_path(:film_id => film.id, :user_id => @user.id, :film_format => film.film_format),
                                               class: "btn btn-xs btn-info send-home-btn",
                                               data: { confirm: 'Are you sure you want to send this film?', remote: true }%></td>
         <% end %>

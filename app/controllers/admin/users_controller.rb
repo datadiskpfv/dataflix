@@ -70,8 +70,17 @@ class Admin::UsersController < ApplicationController
       render :nothing => true
     else
       @film.home = true
+
+      ## decrease the warehouse stock
+      if params[:film_format] == 'blu-ray'
+        @film.film.blu_ray_wstock -= 1
+      else
+        @film.film.dvd_wstock -= 1
+      end
+
       respond_to do |format|
         if @film.save
+          @film.film.save
           format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
           #format.js { render :nothing => true }
           format.js { head :ok }
