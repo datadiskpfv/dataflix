@@ -2,6 +2,19 @@
   <h2>Film Location - <%= @film.title %> <small>(<%= @film_format %>)</small></h2>
 </header>
 <h3></h3>
+
+<% if @film_format == 'blu-ray' %>
+ <b>Stock: <%= @film.blu_ray_stock %></b>
+<% else %>
+ <b>Stock: <%= @film.dvd_stock %></b>
+<% end %>
+<br>
+<% if @film_format == 'blu-ray' %>
+    <b>Warehouse Stock: <%= @film.blu_ray_wstock %> (plus blow should add upto stock above)</b>
+<% else %>
+    <b>Warehouse Stock: <%= @film.dvd_wstock %> (plus blow should add upto stock above)</b>
+<% end %>
+<br><br>
 <table class="table table-striped table-condensed" style="width: 80%">
   <th>User</th>
   <th>Address</th>
