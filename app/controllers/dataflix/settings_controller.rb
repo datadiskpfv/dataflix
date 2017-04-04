@@ -81,9 +81,9 @@ class Dataflix::SettingsController < ApplicationController
         render :nothing => true
       end
 
-      begin
-        @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
-      rescue ActiveRecord::RecordNotFound
+      @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film_id)
+
+      if @rental_film.nil?
         flash[:alert] = "User does not have this film"
         render :nothing => true
       end
