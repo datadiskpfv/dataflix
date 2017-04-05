@@ -4,20 +4,20 @@
 
 <div style="margin-bottom: 10px;">
   <% if @film_format == 'blu-ray' %>
-    <b>Stock: <%= @film.blu_ray_stock %></b>
+      <b>Stock:</b> <%= @film.blu_ray_stock %>
     <% orig_stock = @film.blu_ray_stock %>
   <% else %>
-    <b>Stock: <%= @film.dvd_stock %></b>
+      <b>Stock:</b> <%= @film.dvd_stock %>
     <% orig_stock = @film.dvd_stock %>
   <% end %>
 </div>
 
 <div style="margin-bottom: 10px;">
   <% if @film_format == 'blu-ray' %>
-    <b>Warehouse Stock: <%= @film.blu_ray_wstock %> (plus blow should add upto stock above)</b>
+    <b>Warehouse Stock:</b> <%= @film.blu_ray_wstock %> (plus blow should add upto stock above)
     <% total_stock = @film.blu_ray_wstock %>
   <% else %>
-    <b>Warehouse Stock: <%= @film.dvd_wstock %> (plus blow should add upto stock above)</b>
+    <b>Warehouse Stock:</b> <%= @film.dvd_wstock %> (plus blow should add upto stock above)
     <% total_stock = @film.dvd_wstock %>
   <% end %>
 </div>
