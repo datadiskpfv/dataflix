@@ -76,6 +76,11 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def previous_films_list
+    @user = User.find(current_user.id)
+    @previous_films_list = @user.previous_films.limit(100)
+  end
+
   private
 
   def set_rental_film

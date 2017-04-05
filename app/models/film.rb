@@ -8,6 +8,8 @@ class Film < ActiveRecord::Base
   has_many :users, through: :rental_lists
   #accepts_nested_attributes_for :rental_lists
 
+  has_many :previous_films
+
   mount_uploader :image1, ImageUploader
 
   validates :title, presence: true

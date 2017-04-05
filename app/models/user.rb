@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :films, through: :rental_lists
   #accepts_nested_attributes_for :rental_lists
 
+  has_many :previous_films
+
   def self.search(search)
     where("email LIKE ?", "%#{search}%")
   end

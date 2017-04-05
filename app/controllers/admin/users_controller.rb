@@ -63,6 +63,8 @@ class Admin::UsersController < ApplicationController
 
     @home_count = @user.rental_lists.where(home: true).count
 
+    @previous_film = PreviousFilm.new(film_id: @film.film.id, user_id: @user.id, film_format: params[:film_format])
+
     if @home_count > 2
       puts "Home Count: #{@home_count}"
       #flash[:alert] = 'Maximum Films at Home is 3 films.'
@@ -81,6 +83,7 @@ class Admin::UsersController < ApplicationController
       respond_to do |format|
         if @film.save
           @film.film.save
+          @previous_film.save
           format.html { redirect_to film_list_dataflix_setting_path(@user.id) }
           #format.js { render :nothing => true }
           format.js { head :ok }

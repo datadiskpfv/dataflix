@@ -27,6 +27,10 @@ class FilmsController < ApplicationController
 
     @genres = Genre.all
 
+    if current_user
+      @user = User.find(current_user.id)
+    end
+
     #puts "Genre ID: #{genre.ids}"
     #puts "Genre Name: #{genre[0].genre}"
 

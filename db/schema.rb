@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405072647) do
+ActiveRecord::Schema.define(version: 20170405115236) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 20170405072647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "previous_films", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "film_id"
+    t.string   "film_format"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "previous_films", ["film_id"], name: "index_previous_films_on_film_id"
+  add_index "previous_films", ["user_id"], name: "index_previous_films_on_user_id"
 
   create_table "ratings", force: :cascade do |t|
     t.string   "rating"
