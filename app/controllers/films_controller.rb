@@ -20,7 +20,12 @@ class FilmsController < ApplicationController
   def show
     @film = Film.find(params[:id])
     @reviews = FilmReview.where(film_id: @film.id)
-    @avg_rating = FilmReview.where(film_id: @film.id).average(:star_rating).round(1)
+
+    if @reviews.empty?
+      @avg_rating = 0
+    else
+      @avg_rating = FilmReview.where(film_id: @film.id).average(:star_rating).round(1)
+    end
   end
 
   def table
