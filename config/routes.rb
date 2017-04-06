@@ -64,6 +64,7 @@ Rails.application.routes.draw do
       get :barcode
       get :barcode_form
       post :barcode_find
+      get :film_review
     end
   end
 

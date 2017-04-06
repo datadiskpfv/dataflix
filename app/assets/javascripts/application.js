@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require bxslider
 //= require chartkick
+//= require jquery.raty
 //= require_tree .
 
 $("#menu-toggle").click(function(e) {

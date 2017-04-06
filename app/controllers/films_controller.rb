@@ -155,6 +155,11 @@ class FilmsController < ApplicationController
     redirect_to film_path(id: @film.id)
   end
 
+  def film_review
+    @film_review = FilmReview.new()
+    @film = Film.find(1)
+  end
+
   private
 
   def set_film
