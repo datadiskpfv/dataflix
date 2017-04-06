@@ -8,7 +8,7 @@ class FilmsController < ApplicationController
     #@films_horror = Film.active_t.joins(:genre1).where(genres: {genre: 'Horror'})
 
     @genre_action = Genre.find_by_genre('Action').id
-    @films_action = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_action, @genre_action).order(release_year: :desc, release_month: :desc)
+    @films_action = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_action, @genre_film_reviewsaction).order(release_year: :desc, release_month: :desc)
 
     @genre_thriller = Genre.find_by_genre('Thriller').id
     @films_thriller = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_thriller, @genre_thriller).order(release_year: :desc, release_month: :desc)
@@ -19,6 +19,8 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
+    @reviews = FilmReview.where(film_id: @film.id)
+    @avg_rating = FilmReview.where(film_id: @film.id).average(:star_rating).round(1)
   end
 
   def table
@@ -153,11 +155,27 @@ class FilmsController < ApplicationController
     @film = Film.find_by_barcode("#{@film_barcode}")
 
     redirect_to film_path(id: @film.id)
+    ## redirect_to @film
   end
 
   def film_review
     @film_review = FilmReview.new()
-    @film = Film.find(1)
+    @film = Film.find(params[:film_id])
+
+    if params[:rating]
+      @film_review.user_id = current_user.id
+      @film_review.film_id = @film.id
+      @film_review.star_rating = params[:rating]
+      @film_review.comments = params[:comment]
+
+      if @film_review.save
+        flash[:notice] = 'Film comment has been created.'
+        redirect_to @film
+      else
+        flash.now[:alert] = 'Film comment has not been created.'
+        render 'film_review'
+      end
+    end
   end
 
   private

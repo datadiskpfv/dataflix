@@ -40,6 +40,13 @@
           <div>
             <%= image_tag(film.rating, size: "20x20") %>
           </div>
+
+          <% if film.film_reviews.empty? %>
+              <div class='star-rating' data-score=<%= 0 %>></div>
+          <% else %>
+              <div class='star-rating' data-score=<%= (film.film_reviews.average(:star_rating)).round(2) %>></div>
+          <% end %>
+
           <div>
           <% if user_signed_in? %>
               <% if film.blu_ray_stock? %>
@@ -88,3 +95,13 @@
   </div>
 
 </div>
+
+<script>
+    $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+</script>

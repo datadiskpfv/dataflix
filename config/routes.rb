@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  namespace :dataflix do
-  get 'home_lists/index'
-  end
-
   devise_for :users
 
   root "films#index"
@@ -65,6 +60,7 @@ Rails.application.routes.draw do
       get :barcode_form
       post :barcode_find
       get :film_review
+      post :film_review
     end
   end
 

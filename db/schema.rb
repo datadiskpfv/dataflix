@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406075455) do
+ActiveRecord::Schema.define(version: 20170406114532) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "house_name"
@@ -52,9 +52,10 @@ ActiveRecord::Schema.define(version: 20170406075455) do
     t.integer  "user_id"
     t.integer  "star_rating"
     t.text     "comments"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "film_id"
+    t.boolean  "approval",    default: false
   end
 
   add_index "film_reviews", ["film_id"], name: "index_film_reviews_on_film_id"
