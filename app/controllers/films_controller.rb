@@ -19,7 +19,7 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
-    @reviews = FilmReview.where(film_id: @film.id)
+    @reviews = FilmReview.where(film_id: @film.id).order('created_at DESC')
 
     if @reviews.empty?
       @avg_rating = 0
