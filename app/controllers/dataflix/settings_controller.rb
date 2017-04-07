@@ -29,7 +29,6 @@ class Dataflix::SettingsController < ApplicationController
 
   def remove_film_from_rental_list
 
-    puts "In remove_from_rental_list"
     ## decrease the warehouse stock
     if params[:film_format] == 'blu-ray'
       @rental_film.film.blu_ray_wstock += 1
@@ -79,7 +78,7 @@ class Dataflix::SettingsController < ApplicationController
 
   def previous_films_list
     @user = User.find(current_user.id)
-    @previous_films_list = @user.previous_films.limit(100)
+    @previous_films_list = @user.previous_films.limit(100).order('previous_films.created_at DESC')
   end
 
   private
