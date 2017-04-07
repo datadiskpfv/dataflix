@@ -29,6 +29,7 @@ class Dataflix::SettingsController < ApplicationController
 
   def remove_film_from_rental_list
 
+    puts "In remove_from_rental_list"
     ## decrease the warehouse stock
     if params[:film_format] == 'blu-ray'
       @rental_film.film.blu_ray_wstock += 1
@@ -87,7 +88,7 @@ class Dataflix::SettingsController < ApplicationController
     @user = User.find(params[:user_id])
 
     if params[:barcode]
-     respond_to do |format|
+     #respond_to do |format|
        @film_barcode = params[:barcode].chop
        @rental_film = Film.find_by_barcode("#{@film_barcode}")
 
@@ -95,21 +96,25 @@ class Dataflix::SettingsController < ApplicationController
        if @rental_film.nil?
          puts "Film is nil"
          flash[:alert] = "Invalid barcode"
-         format.js { head :ok }
+         render :nothing => true
+         #format.js { head :ok }
        else
-         @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film.id)
-
+         @rental_film = @user.rental_lists.find_by(user_id: @user.id, film_id: @rental_film.id, film_format: params[:film_format])
+         puts "Rental Film: #{@rental_film}"
          ## let make sure that the user does have the film at home
          if @rental_film.nil?
            flash[:alert] = "User does not have this film at home"
-           format.js { head :ok }
+           render :nothing => true
+           #format.js { head :ok }
          end
        end
-     end
+       #render :nothing => true
+     #end
     else
       ## non-barcode films, using the return film button
       @rental_film = @user.rental_lists.find_by(id: params[:film_id])
     end
+    puts "going to remove_film_rental_from_rental_list"
     #@rental_film = RentalList.find(params[:user_id], params[:film_id])
   #rescue ActiveRecord::RecordNotFound
     #flash[:alert] = 'The rental film you were looking for could not be found'
