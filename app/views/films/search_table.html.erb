@@ -23,7 +23,11 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <a href="#">
-            <%= image_tag(film.image1, size: "141x200", class: "img-thumbnail img-responsive pop", :data => { :toggle => "popover", :content => "#{film.description}", :container => "body" }) %>
+            <% film_blurb = "<span style='color:red'>Title:</span> <small>#{film.title}</small><br>
+                             <span style='color:red'>Rating:</span> <small>#{film.rating}</small><br>
+                             <span style='color:red'>Description:</span> <small>#{film.description}</small><br>
+                             <span style='color:red'>Formats:</span> <small>Blu-Ray, DVD</small><br> " %>
+            <%= image_tag(film.image1, size: "141x200", class: "img-thumbnail img-responsive pop img-border", :data => { :toggle => "popover", :content => "#{film_blurb}", :container => "body" } ) %>
           </a>
         </div>
         <div class="panel-footer">
