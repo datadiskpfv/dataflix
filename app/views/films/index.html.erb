@@ -25,14 +25,27 @@
     </div>
   </div>
 
-  <div class="horror" id="thriller">
+
+
+  <div class="horror" id="horrow">
     <span class="genre-title">Horror </span>
     <span class="genre-link"><%= link_to 'View All Horror Films', {:controller => "films", :action => "table", :genre1 => 'Horror'} %></span>
     <div class="slider">
       <% @films_horror.each do |film| %>
-        <div class="slide"><%= link_to image_tag(film.image1), film %></div>
+          <div class="slide"><%= link_to image_tag(film.image1), film %></div>
       <% end %>
-    <div class="slide"><%= link_to 'Horror', {:controller => "films", :action => "table", :genre1 => 'Horror' } %></div>
+      <div class="slide"><%= link_to 'Horror', {:controller => "films", :action => "table", :genre1 => 'Horror' } %></div>
+    </div>
+  </div>
+
+  <div class="top_10" id="top_10">
+    <span class="genre-title">Top 10 </span>
+    <span class="genre-link"><%= link_to 'View Top 10 Rated Films', {:controller => "films", :action => "table", :genre1 => 'top_10'} %></span>
+    <div class="slider">
+      <% @top_rated_films.each do |film| %>
+          <div class="slide"><%= link_to image_tag(film.image1), film %></div>
+      <% end %>
+      <div class="slide"><%= link_to 'Top 10 Rated Films', {:controller => "films", :action => "table", :genre1 => 'top_10' } %></div>
     </div>
   </div>
 </div>

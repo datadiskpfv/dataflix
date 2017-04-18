@@ -15,6 +15,8 @@ class FilmsController < ApplicationController
 
     @genre_horror = Genre.find_by_genre('Horror').id
     @films_horror = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_horror, @genre_horror).order(release_year: :desc, release_month: :desc)
+
+    @top_rated_films = Film.includes(:film_reviews).order('film_reviews.star_rating DESC').limit(10)
   end
 
   def show
@@ -29,8 +31,12 @@ class FilmsController < ApplicationController
   end
 
   def table
-    genre = Genre.where(genre: params[:genre1])
-    @table_title = "#{genre[0].genre}"
+    if params[:genre1] == 'top_10'
+      @table_title = "Top 10 Rated Films"
+    else
+      genre = Genre.where(genre: params[:genre1])
+      @table_title = "#{genre[0].genre}"
+    end
 
     @genres = Genre.all
 
@@ -42,7 +48,12 @@ class FilmsController < ApplicationController
     #puts "Genre Name: #{genre[0].genre}"
 
     ## added pagination using will_paginate
-    @films = Film.where(genre1: genre.ids).active_t.paginate(:page => params[:page], :per_page => 6)
+    if params[:genre1] == 'top_10'
+      @films = Film.includes(:film_reviews).order('film_reviews.star_rating DESC').paginate(:page => params[:page], :per_page => 6, :total_entries => 10)
+    else
+      @films = Film.where(genre1: genre.ids).active_t.paginate(:page => params[:page], :per_page => 6)
+    end
+
   end
 
   def search_table
