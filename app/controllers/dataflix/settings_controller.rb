@@ -24,7 +24,7 @@ class Dataflix::SettingsController < ApplicationController
     ##the select * adds the additional columns in the rental_lists
     #@films = @user.films.select("*").order('films.title ASC')
     @home_films = @user.films.select("*").where(rental_lists: { home: true}).order('films.title ASC')
-    @rental_films = @user.films.select("*").where(rental_lists: { home: false}).order('films.title ASC')
+    @rental_films = @user.films.select("*").where(rental_lists: { home: false}).order('films.title DESC')
   end
 
   def remove_film_from_rental_list
