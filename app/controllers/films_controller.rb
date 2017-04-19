@@ -87,7 +87,7 @@ class FilmsController < ApplicationController
   end
 
   def stock_location
-    @films = Film.search(params[:search_film]).active_t
+    @films = Film.search(params[:search_film]).active_t.order('title ASC')
   end
 
   def new
