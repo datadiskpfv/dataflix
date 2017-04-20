@@ -1,0 +1,7 @@
+<header>
+  <h1>In-Active Films</h1>
+</header>
+
+<% @films.each do |film| %>
+    In-Active - <%= link_to film.title, film_path(film) %><br>
+<% end %>

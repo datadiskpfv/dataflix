@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       post :barcode_find
       get :film_review
       post :film_review
+      get :inactive
     end
   end
 

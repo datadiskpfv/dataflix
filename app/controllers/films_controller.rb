@@ -194,6 +194,10 @@ class FilmsController < ApplicationController
     end
   end
 
+  def inactive
+      @films = Film.active_f.all
+  end
+
   private
 
   def set_film
