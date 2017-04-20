@@ -1,7 +1,7 @@
 <%= simple_form_for (@film) do |f| %>
 
   <%= f.input :title, input_html: { maxlength: 50 } %>
-  <%= f.input :description, :as => :text, input_html: {rows: 5, maxlength: 200} %>
+  <%= f.input :description, :as => :text, input_html: {rows: 15, maxlength: 1000} %>
   <%= f.association :genre1, label: 'Genre1', prompt: "Choose a Genre" %>
   <%= f.association :genre2, label: 'Genre2', prompt: "Choose a Genre" %>
   <%= f.association :rating, prompt: "Choose a Rating" %>
