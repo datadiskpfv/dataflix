@@ -109,6 +109,10 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def users_distro
+    @users = RentalList.where(:home => true).group(:user_id).having("COUNT(user_id) < 3")
+  end
+
   private
 
   def set_user

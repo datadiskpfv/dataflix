@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         get :user_returns_list
         get :send_home
         post :film_format
+        get :users_distro
       end
       member do
         patch :archive

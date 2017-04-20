@@ -1,0 +1,7 @@
+<header>
+  <h1> Users who have less than 3 films at home</h1>
+</header>
+
+<% @users.each do |user| %>
+    <%= link_to User.find(user.user_id).email, user_returns_list_admin_users_path(:id => user.user_id) %><br>
+<% end %>
