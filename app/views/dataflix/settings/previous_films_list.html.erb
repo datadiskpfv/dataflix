@@ -8,7 +8,7 @@
   <th>Date @ Home</th>
   <% @previous_films_list.each do |previous_film| %>
     <tr>
-    <td><%= previous_film.film.title %></td>
+    <td><%= link_to previous_film.film.title, film_path(previous_film.film.id) %></td>
     <td><%= previous_film.film_format %></td>
     <td><%= previous_film.film.created_at.strftime("%d-%m-%Y") %></td>
     </tr>

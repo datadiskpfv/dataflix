@@ -16,7 +16,8 @@ class FilmsController < ApplicationController
     @genre_horror = Genre.find_by_genre('Horror').id
     @films_horror = Film.active_t.where("genre1_id = ? or genre2_id = ?", @genre_horror, @genre_horror).order(release_year: :desc, release_month: :desc)
 
-    @top_rated_films = Film.includes(:film_reviews).order('film_reviews.star_rating DESC').limit(10)
+    ##@top_rated_films = Film.includes(:film_reviews).order('film_reviews.star_rating DESC').limit(10)
+    @top_rated_films = Film.joins(:film_reviews).group(:title).order('avg(film_reviews.star_rating) DESC')
   end
 
   def show
@@ -49,7 +50,7 @@ class FilmsController < ApplicationController
 
     ## added pagination using will_paginate
     if params[:genre1] == 'top_10'
-      @films = Film.includes(:film_reviews).order('film_reviews.star_rating DESC').paginate(:page => params[:page], :per_page => 6, :total_entries => 10)
+      @films = Film.joins(:film_reviews).group(:title).order('avg(film_reviews.star_rating) DESC').paginate(:page => params[:page], :per_page => 6, :total_entries => 10)
     else
       @films = Film.where(genre1: genre.ids).active_t.paginate(:page => params[:page], :per_page => 6)
     end

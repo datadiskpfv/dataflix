@@ -19,13 +19,22 @@
         <td><b>Film</b></td>
         <td><b>Disc Format</b></td>
         <td><b>Sent On</b></td>
+        <td><b>Ratings</b></td>
       </tr>
       <% @home_films.each do |film| %>
         <tr>
           <td><%= image_tag film.image1, size: "40x40" %></td>
-          <td><%= film.title %></td>
+          <td><%= link_to film.title, film_path(film.film_id) %></td>
           <td><%= film.film_format %></td>
           <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
+
+          <% movie = Film.find(film.film_id) %>
+          <% if movie.film_reviews.empty? %>
+              <% puts "#{film.film_id}" %>
+              <td><span class='star-rating' data-score=<%= 0 %>>0</span></td>
+          <% else %>
+              <td><span class='star-rating' data-score=<%= (movie.film_reviews.average(:star_rating)).round(2) %>></span> <%= FilmReview.where(film_id: film.film_id).count %></td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>
@@ -43,13 +52,23 @@
     <td><b>Film</b></td>
     <td><b>Disc Format</b></td>
     <td><b>Added to List on</b></td>
+    <td><b>Ratings</b></td>
     <td><b>Remove from List</b></td>
     <% @rental_films.each do |film| %>
       <tr>
         <td><%= image_tag film.image1, size: "40x40" %></td>
-        <td><%= film.title %></td>
+        <td><%= link_to film.title, film_path(film.film_id) %></td>
         <td><%= film.film_format %></td>
         <td><%= film.updated_at.strftime("%d-%m-%Y") %></td>
+
+        <% movie = Film.find(film.film_id) %>
+        <% if movie.film_reviews.empty? %>
+            <% puts "#{film.film_id}" %>
+            <td><span class='star-rating' data-score=<%= 0 %>></span></td>
+        <% else %>
+            <td><span class='star-rating' data-score=<%= (movie.film_reviews.average(:star_rating)).round(2) %>></span> <%= FilmReview.where(film_id: film.film_id).count %></td>
+        <% end %>
+
         <td id="remove_rental"><%= link_to 'Remove film from list',
               remove_film_from_rental_list_dataflix_settings_path(:film_id => film.id, :user_id => @user.id),
               class: "btn btn-xs btn-info rental-remove-btn",
@@ -58,3 +77,13 @@
     <% end %>
   <% end %>
 </table>
+
+<script>
+    $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+</script>
