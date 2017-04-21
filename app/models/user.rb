@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :previous_films
 
+  has_many :film_reviews
+
   def self.search(search)
     where("email LIKE ?", "%#{search}%")
   end
