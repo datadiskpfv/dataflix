@@ -1,7 +1,14 @@
 <header>
-  <h1> Users who have less than 3 films at home</h1>
+  <h1> Users that need films sent home</h1>
 </header>
 
+<h4>Users with less than 3 films at home</h4>
 <% @users.each do |user| %>
     <%= link_to User.find(user.user_id).email, user_returns_list_admin_users_path(:id => user.user_id) %><br>
+<% end %>
+
+<h4>Users with no films at home</h4>
+
+<% @users_no_films.each do |user| %>
+    <%= link_to user.email, user_returns_list_admin_users_path(:id => user.id) %><br>
 <% end %>

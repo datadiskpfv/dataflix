@@ -111,6 +111,7 @@ class Admin::UsersController < ApplicationController
 
   def users_distro
     @users = RentalList.where(:home => true).group(:user_id).having("COUNT(user_id) < 3")
+    @users_no_films = User.includes(:rental_lists).where( rental_lists: { user_id: nil}, admin: false)
   end
 
   private
