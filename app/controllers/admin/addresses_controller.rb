@@ -3,7 +3,7 @@ class Admin::AddressesController < Admin::ApplicationController
   before_action :set_address, only: [:edit, :update, :destroy]
 
   def index
-    @addresses = Address.all
+    @addresses = Address.find(current_user.id)
   end
 
   def new

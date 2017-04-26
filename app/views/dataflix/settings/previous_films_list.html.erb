@@ -10,7 +10,7 @@
     <tr>
     <td><%= link_to previous_film.film.title, film_path(previous_film.film.id) %></td>
     <td><%= previous_film.film_format %></td>
-    <td><%= previous_film.film.created_at.strftime("%d-%m-%Y") %></td>
+    <td><%= previous_film.created_at.strftime("%d-%m-%Y") %></td>
     </tr>
   <% end %>
 </table>
